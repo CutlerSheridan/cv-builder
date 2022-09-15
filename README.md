@@ -25,6 +25,12 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### DONE
 
+_0.1.0_
+
+- build state objects for App.js
+- create basic Contact component
+- create basic Sidebar component
+
 _0.0.0_
 
-- Initial commit
+- initial commit
