@@ -1,7 +1,12 @@
 .sidebar {
+  padding: 0.5rem;
+  width: 5rem;
+  display: flex;
+  justify-content: flex-end;
   background: grey;
 }
 .sidebar-header {
   writing-mode: vertical-lr;
-  text-orientation: sideways;
+  transform: scale(-1);
+  text-align: right;
 }

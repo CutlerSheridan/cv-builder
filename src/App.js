@@ -11,9 +11,9 @@ class App extends Component {
     super();
     this.state = {
       contact: {
-        name: 'cutler',
+        name: '',
         email: 'dsls.fj@ajof.com',
-        phone: '7705059505',
+        phone: '7705959505',
       },
       experience: {
         job: {
@@ -38,12 +38,36 @@ class App extends Component {
         },
         programs: [],
       },
+      editing: true,
     };
+    this.toggleEditing = this.toggleEditing.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange = (e, section, prop) => {
+    const newObj = { ...this.state[section] };
+    newObj[prop] = e.target.value;
+    this.setState({
+      [section]: newObj,
+    });
+  };
+  toggleEditing() {
+    this.setState((state) => ({
+      editing: !state.editing,
+    }));
   }
   render() {
     return (
       <div className="cv-container">
-        <Contact info={this.state.contact}></Contact>
+        <button className="editTest" type="button" onClick={this.toggleEditing}>
+          toggle edit mode
+        </button>
+        <div className="cv">
+          <Contact
+            info={this.state.contact}
+            editing={this.state.editing}
+            onchange={this.handleChange}
+          ></Contact>
+        </div>
       </div>
     );
   }

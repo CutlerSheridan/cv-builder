@@ -1,9 +1,33 @@
+:root {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+}
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 2rem;
+}
+
 .section-container {
   display: flex;
   border: 1px solid red;
 }
 
 .item-container-edit {
+  margin: 1rem;
   display: flex;
   flex-direction: column;
+}
+.cv {
+  margin: 2rem;
+}
+.hidden {
+  display: none;
+  background: pink;
 }

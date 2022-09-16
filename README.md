@@ -6,18 +6,22 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
+- build Experience component
+
 #### TODO LATER
 
 ##### Features
 
-- add toggle between edit and preview modes
-- make information in edit mode transfer to preview mode
-- make edit mode retain information in input boxes after switching to preview mode and switching back
+- sync email and phone number between edit and preview mode; make changeable
+- build Skills component
+- build Education component
 - make form retain information upon refresh
 - add sample data button
 - add clear data button (with confirmation)
 
 ##### Behavior
+
+- extract edit mode toggle button/s into component
 
 ##### Style
 
@@ -25,9 +29,15 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### DONE
 
+_0.2.0_
+
+- add toggle between edit and preview modes
+- add preview elements to Contact
+- sync name input and preview display for name
+
 _0.1.0_
 
-- build state objects for App.js
+- build state object for App.js
 - create basic Contact component
 - create basic Sidebar component
 
