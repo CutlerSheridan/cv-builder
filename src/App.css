@@ -28,6 +28,6 @@ body {
   margin: 2rem;
 }
 .hidden {
-  display: none;
+  /* display: none; */
   background: pink;
 }

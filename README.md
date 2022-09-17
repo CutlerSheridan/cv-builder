@@ -6,7 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- build Experience component
+- keep building Experience component
 
 #### TODO LATER
 
@@ -28,6 +28,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.1_
+
+- start building Experience component
+- refactor handleChange() to accommodate multiple components
 
 _0.2.0_
 

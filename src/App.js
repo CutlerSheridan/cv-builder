@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       contact: {
-        name: '',
+        name: 'cutler',
         email: 'dsls.fj@ajof.com',
         phone: '7705959505',
       },
@@ -24,13 +24,22 @@ class App extends Component {
           end: '',
           description: '',
         },
-        jobs: [],
+        jobs: [
+          {
+            id: uniqid(),
+            company: 'a company',
+            title: 'a title',
+            start: 'June 6th',
+            end: 'August 20th',
+            description: 'what this job was about',
+          },
+        ],
       },
       skills: [],
       education: {
         program: {
           id: uniqid(),
-          institution: '',
+          school: '',
           focus: '',
           start: '',
           end: '',
@@ -43,12 +52,29 @@ class App extends Component {
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange = (e, section, prop) => {
+  handleChange = (e, section, prop, id) => {
     const newObj = { ...this.state[section] };
-    newObj[prop] = e.target.value;
-    this.setState({
-      [section]: newObj,
-    });
+    if (section === 'contact') {
+      newObj[prop] = e.target.value;
+      this.setState({
+        [section]: newObj,
+      });
+    } else if (section === 'experience' || section === 'education') {
+      const jobsOrPrograms = section === 'experience' ? 'jobs' : 'programs';
+      newObj[jobsOrPrograms] = newObj[jobsOrPrograms].map((x) => {
+        if (x.id !== e.target.id) {
+          return x;
+        }
+        const alteredItem = { ...x };
+        alteredItem[prop] = e.target.value;
+        return alteredItem;
+      });
+      this.setState({
+        [section]: newObj,
+      });
+    } else if (section === 'skills') {
+      // change things
+    }
   };
   toggleEditing() {
     this.setState((state) => ({
@@ -67,6 +93,11 @@ class App extends Component {
             editing={this.state.editing}
             onchange={this.handleChange}
           ></Contact>
+          <Experience
+            info={this.state.experience}
+            editing={this.state.editing}
+            onchange={this.handleChange}
+          ></Experience>
         </div>
       </div>
     );
