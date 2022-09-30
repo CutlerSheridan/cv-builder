@@ -14,6 +14,10 @@ body {
   font-size: 2rem;
 }
 
+.cv {
+  margin: 2rem;
+}
+
 .section-container {
   display: flex;
   border: 1px solid red;
@@ -21,14 +25,10 @@ body {
 .item-container {
   background: orange;
 }
-.item-container-edit {
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
+.item-container > label {
+  text-transform: capitalize;
 }
-.cv {
-  margin: 2rem;
-}
+
 .hidden {
   /* display: none; */
   background: pink;

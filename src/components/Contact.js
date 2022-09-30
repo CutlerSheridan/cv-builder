@@ -1,6 +1,7 @@
 import '../styles/Contact.css';
 import { Component } from 'react';
 import Sidebar from './Sidebar';
+import Item from './Item';
 
 class Contact extends Component {
   render() {
@@ -15,29 +16,28 @@ class Contact extends Component {
         </div>
 
         <form className={`${editing ? '' : 'hidden'}`}>
-          <div className="item-container-edit">
-            <label htmlFor="name">Name:</label>
-            <input
-              id="name"
-              onChange={(e) => onchange(e, 'contact', 'name')}
-              value={info.name}
-            ></input>
-          </div>
-          <div className="item-container-edit">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" value={info.email}></input>
-          </div>
-          <div className="item-container-edit">
-            <label htmlFor="phone">Phone Number:</label>
-            <input
-              minLength="10"
-              pattern=".*(\d{3})[^0-9]*(\d{3})[^0-9]*(\d{4})[^a-zA-Z0-9]?"
-              id="phone"
-              value={info.phone}
-            ></input>
-          </div>
+          <Item
+            item={info}
+            onchange={onchange}
+            section="contact"
+            prop="name"
+          ></Item>
+          <Item
+            item={info}
+            onchange={onchange}
+            section="contact"
+            prop="email"
+          ></Item>
+          <Item
+            item={info}
+            onchange={onchange}
+            section="contact"
+            prop="phone"
+          ></Item>
         </form>
-        <p className="editTest">{this.props.editing ? 'is being edited' : 'is not being edited'}</p>
+        <p className="editTest">
+          {this.props.editing ? 'is being edited' : 'is not being edited'}
+        </p>
       </section>
     );
   }

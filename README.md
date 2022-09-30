@@ -6,7 +6,6 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- try making a component for individual items
 - keep building Experience component
 
 #### TODO LATER
@@ -29,6 +28,12 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.3_
+
+- create Item component for editing items
+- integrate Item component into Contact and Experience
+- extract Item css to new file and import to Item.js
 
 _0.2.2_
 

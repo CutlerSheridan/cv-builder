@@ -11,6 +11,7 @@ class App extends Component {
     super();
     this.state = {
       contact: {
+        id: uniqid(),
         name: 'cutler',
         email: 'dsls.fj@ajof.com',
         phone: '7705959505',

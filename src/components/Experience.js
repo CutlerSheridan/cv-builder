@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Sidebar from './Sidebar';
+import Item from './Item';
 
 class Experience extends Component {
   render() {
@@ -22,22 +23,18 @@ class Experience extends Component {
           {info.jobs.map((j) => {
             return (
               <div className="job-edit" key={`job_${j.id}`}>
-                <div className="item-container-edit">
-                  <label htmlFor={j.id}>Company:</label>
-                  <input
-                    id={j.id}
-                    onChange={(e) => onchange(e, 'experience', 'company')}
-                    value={j.company}
-                  ></input>
-                </div>
-                <div className="item-container-edit">
-                  <label htmlFor={j.id}>Title:</label>
-                  <input
-                    id={j.id}
-                    onChange={(e) => onchange(e, 'experience', 'title')}
-                    value={j.title}
-                  ></input>
-                </div>
+                <Item
+                  item={j}
+                  onchange={onchange}
+                  section="experience"
+                  prop="company"
+                ></Item>
+                <Item
+                  item={j}
+                  onchange={onchange}
+                  section="experience"
+                  prop="title"
+                ></Item>
               </div>
             );
           })}
