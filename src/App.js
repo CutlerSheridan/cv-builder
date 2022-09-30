@@ -41,12 +41,21 @@ class App extends Component {
         program: {
           id: uniqid(),
           school: '',
-          focus: '',
           start: '',
           end: '',
+          focus: '',
           description: '',
         },
-        programs: [],
+        programs: [
+          {
+            id: uniqid(),
+            school: 'a school',
+            start: '2011',
+            end: '2015',
+            focus: 'B.A. in Mass Media Telecom',
+            description: 'additional info',
+          },
+        ],
       },
       editing: true,
     };
@@ -99,6 +108,11 @@ class App extends Component {
             editing={this.state.editing}
             onchange={this.handleChange}
           ></Experience>
+          <Education
+            info={this.state.education}
+            editing={this.state.editing}
+            onchange={this.handleChange}
+          ></Education>
         </div>
       </div>
     );

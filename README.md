@@ -6,15 +6,14 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- keep building Experience component
+- add 'add' button for experience
 
 #### TODO LATER
 
 ##### Features
 
-- sync email and phone number between edit and preview mode; make changeable
+- add 'delete' button for experience
 - build Skills component
-- build Education component
 - make form retain information upon refresh
 - add sample data button
 - add clear data button (with confirmation)
@@ -25,9 +24,15 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
+- make it fill page in print dialogue preview
 - add credit
 
 #### DONE
+
+_0.2.5_
+
+- add all fields to Experience component
+- build Education component
 
 _0.2.4_
 

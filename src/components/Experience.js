@@ -16,6 +16,7 @@ class Experience extends Component {
               <div className="item-container">
                 {j.start} - {j.end}
               </div>
+              <div className="item-container">{j.description}</div>
             </div>
           ))}
         </div>
@@ -27,7 +28,13 @@ class Experience extends Component {
                   obj={j}
                   onchange={onchange}
                   section="experience"
-                  inputProps={['company', 'title', 'start', 'end']}
+                  inputProps={[
+                    'company',
+                    'title',
+                    'start',
+                    'end',
+                    'description',
+                  ]}
                 ></AllItems>
               </div>
             );
