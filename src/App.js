@@ -63,7 +63,7 @@ class App extends Component {
     } else if (section === 'experience' || section === 'education') {
       const jobsOrPrograms = section === 'experience' ? 'jobs' : 'programs';
       newObj[jobsOrPrograms] = newObj[jobsOrPrograms].map((x) => {
-        if (x.id !== e.target.id) {
+        if (x.id !== e.target.dataset.id) {
           return x;
         }
         const alteredItem = { ...x };

@@ -29,6 +29,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### DONE
 
+_0.2.4_
+
+- build component to make Items for all the props in an object
+- integrate AllItems component
+
 _0.2.3_
 
 - create Item component for editing items

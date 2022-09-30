@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Sidebar from './Sidebar';
-import Item from './Item';
+import AllItems from './AllItems';
 
 class Experience extends Component {
   render() {
@@ -23,18 +23,12 @@ class Experience extends Component {
           {info.jobs.map((j) => {
             return (
               <div className="job-edit" key={`job_${j.id}`}>
-                <Item
-                  item={j}
+                <AllItems
+                  obj={j}
                   onchange={onchange}
                   section="experience"
-                  prop="company"
-                ></Item>
-                <Item
-                  item={j}
-                  onchange={onchange}
-                  section="experience"
-                  prop="title"
-                ></Item>
+                  inputProps={['company', 'title', 'start', 'end']}
+                ></AllItems>
               </div>
             );
           })}

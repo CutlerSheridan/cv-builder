@@ -1,7 +1,7 @@
 import '../styles/Contact.css';
 import { Component } from 'react';
 import Sidebar from './Sidebar';
-import Item from './Item';
+import AllItems from './AllItems';
 
 class Contact extends Component {
   render() {
@@ -16,24 +16,12 @@ class Contact extends Component {
         </div>
 
         <form className={`${editing ? '' : 'hidden'}`}>
-          <Item
-            item={info}
+          <AllItems
+            obj={info}
             onchange={onchange}
             section="contact"
-            prop="name"
-          ></Item>
-          <Item
-            item={info}
-            onchange={onchange}
-            section="contact"
-            prop="email"
-          ></Item>
-          <Item
-            item={info}
-            onchange={onchange}
-            section="contact"
-            prop="phone"
-          ></Item>
+            inputProps={['name', 'email', 'phone']}
+          ></AllItems>
         </form>
         <p className="editTest">
           {this.props.editing ? 'is being edited' : 'is not being edited'}

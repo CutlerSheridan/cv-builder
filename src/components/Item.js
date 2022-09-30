@@ -3,14 +3,15 @@ import '../styles/Item.css';
 
 class Item extends Component {
   render() {
-    const { item, onchange, section, prop } = this.props;
+    const { obj, onchange, section, prop } = this.props;
     return (
       <div className="item-container-edit">
-        <label htmlFor={item.id}>{prop}:</label>
+        <label htmlFor={`${prop}_${obj.id}`}>{prop}:</label>
         <input
-          id={item.id}
+          id={`${prop}_${obj.id}`}
+          data-id={obj.id}
           onChange={(e) => onchange(e, section, prop)}
-          value={item[prop]}
+          value={obj[prop]}
         ></input>
       </div>
     );
