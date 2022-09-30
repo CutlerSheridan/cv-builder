@@ -6,6 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
+- try making a component for individual items
 - keep building Experience component
 
 #### TODO LATER
@@ -28,6 +29,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.2_
+
+- add title to static and edit portions of Experience
+- remove id parameter from handleChange()
 
 _0.2.1_
 

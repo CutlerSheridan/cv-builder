@@ -18,7 +18,9 @@ body {
   display: flex;
   border: 1px solid red;
 }
-
+.item-container {
+  background: orange;
+}
 .item-container-edit {
   margin: 1rem;
   display: flex;

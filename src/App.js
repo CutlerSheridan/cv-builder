@@ -52,7 +52,7 @@ class App extends Component {
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange = (e, section, prop, id) => {
+  handleChange = (e, section, prop) => {
     const newObj = { ...this.state[section] };
     if (section === 'contact') {
       newObj[prop] = e.target.value;
