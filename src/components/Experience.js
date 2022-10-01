@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
+import Add from './Add';
 
 class Experience extends Component {
   render() {
-    const { editing, info, onchange } = this.props;
+    const { editing, info } = this.props;
     return (
       <section className="section-container">
         <Sidebar text="Experience"></Sidebar>
@@ -17,6 +18,8 @@ class Experience extends Component {
                 {j.start} - {j.end}
               </div>
               <div className="item-container">{j.description}</div>
+              <div className="item-container">{j.id}</div>
+              <div className="item-container">{`num of jobs: ${info.jobs.length}`}</div>
             </div>
           ))}
         </div>
@@ -26,7 +29,7 @@ class Experience extends Component {
               <div className="job-edit" key={`job_${j.id}`}>
                 <AllItems
                   obj={j}
-                  onchange={onchange}
+                  onchange={this.props.onchange}
                   section="experience"
                   inputProps={[
                     'company',
@@ -39,6 +42,10 @@ class Experience extends Component {
               </div>
             );
           })}
+          <Add
+            section="experience"
+            handleAddClick={this.props.handleAddClick}
+          ></Add>
         </form>
       </section>
     );

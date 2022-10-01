@@ -6,7 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- add 'add' button for experience
+- fix 'add' button changing second key to third when two empty sections are added in a row
 
 #### TODO LATER
 
@@ -28,6 +28,10 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.6_
+
+- add 'add' button for experience
 
 _0.2.5_
 

@@ -18,7 +18,7 @@ class App extends Component {
       },
       experience: {
         job: {
-          id: uniqid(),
+          id: '',
           company: '',
           title: '',
           start: '',
@@ -61,6 +61,7 @@ class App extends Component {
     };
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.addJobOrProgram = this.addJobOrProgram.bind(this);
   }
   handleChange = (e, section, prop) => {
     const newObj = { ...this.state[section] };
@@ -86,6 +87,19 @@ class App extends Component {
       // change things
     }
   };
+  addJobOrProgram = (section) => {
+    const newObj = { ...this.state[section] };
+    const jobOrProgram = section === 'experience' ? 'job' : 'program';
+
+    newObj[jobOrProgram].id = uniqid();
+    newObj[`${jobOrProgram}s`] = newObj[`${jobOrProgram}s`].concat(
+      newObj[jobOrProgram]
+    );
+    console.log(newObj[`${jobOrProgram}s`]);
+    this.setState({
+      [section]: newObj,
+    });
+  };
   toggleEditing() {
     this.setState((state) => ({
       editing: !state.editing,
@@ -107,6 +121,7 @@ class App extends Component {
             info={this.state.experience}
             editing={this.state.editing}
             onchange={this.handleChange}
+            handleAddClick={this.addJobOrProgram}
           ></Experience>
           <Education
             info={this.state.education}
