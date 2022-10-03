@@ -64,7 +64,8 @@ class App extends Component {
     this.addJobOrProgram = this.addJobOrProgram.bind(this);
   }
   handleChange = (e, section, prop) => {
-    const newObj = { ...this.state[section] };
+    // const newObj = { ...this.state[section] };
+    const newObj = JSON.parse(JSON.stringify(this.state[section]));
     if (section === 'contact') {
       newObj[prop] = e.target.value;
       this.setState({
@@ -88,17 +89,34 @@ class App extends Component {
     }
   };
   addJobOrProgram = (section) => {
-    const newObj = { ...this.state[section] };
     const jobOrProgram = section === 'experience' ? 'job' : 'program';
+    // const newObj = {
+    //   ...this.state[section],
+    //   [jobOrProgram]: { ...this.state[section][jobOrProgram] },
+    //   [`${jobOrProgram}s`]: [...this.state[section][`${jobOrProgram}s`]],
+    // };
+    const newObj = JSON.parse(JSON.stringify(this.state[section]));
+
+    console.log('before assigning job.id');
+    console.log(this.state.experience.job.id);
 
     newObj[jobOrProgram].id = uniqid();
+    console.log('after assigning job.id');
+    console.log(newObj[jobOrProgram].id);
+    console.log(this.state.experience.job.id);
+
     newObj[`${jobOrProgram}s`] = newObj[`${jobOrProgram}s`].concat(
       newObj[jobOrProgram]
     );
-    console.log(newObj[`${jobOrProgram}s`]);
+    // console.log(newObj[`${jobOrProgram}s`]);
+    console.log('before setState');
+    console.log(this.state.experience.job.id);
     this.setState({
       [section]: newObj,
     });
+    console.log('after setState');
+    console.log(this.state.experience.job.id);
+    console.log('\n\n\n');
   };
   toggleEditing() {
     this.setState((state) => ({

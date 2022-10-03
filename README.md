@@ -6,13 +6,14 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- fix 'add' button changing second key to third when two empty sections are added in a row
+- clean up console.logs and comments
 
 #### TODO LATER
 
 ##### Features
 
 - add 'delete' button for experience
+- prevent add button from adding new section if current section is empty
 - build Skills component
 - make form retain information upon refresh
 - add sample data button
@@ -20,6 +21,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Behavior
 
+- prevent dates dash from appearing if no dates are present
 - extract edit mode toggle button/s into component
 
 ##### Style
@@ -28,6 +30,14 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.7_
+
+- fix 'add' button changing second key to third when two empty sections are added in a row
+  - this is happening because 'const newObj = { ...this.state[section] }' creates a shallow copy and references back to the original variable if an object is nested
+  - when you type a change into the text input, I believe it's then making the object unique, so a subsequent job won't reference the same thing
+  - fixed it by using JSON.parse(JSON.stringify()) to copy all nested objects as well without referencing them
+  - alternatively, I could have used spread syntax in object assignment like I was and additionally specifically passed arguments with the properties that would have needed to be objects as that overwrites the property with whatever you specify ({ ...this.state.experience, job: { ...this.state.experience.job }, jobs: [ ...this.state.experience.jobs ] })
 
 _0.2.6_
 
