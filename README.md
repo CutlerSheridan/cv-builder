@@ -6,13 +6,13 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- add 'delete' button for experience
+- build Skills component
 
 #### TODO LATER
 
 ##### Features
 
-- build Skills component
+- refactor add to work with skills as well
 - make form retain information upon refresh
 - add sample data button
 - add clear data button (with confirmation)
@@ -20,6 +20,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 ##### Behavior
 
 - prevent dates dash from appearing if no dates are present
+- prevent section header from appearing except in edit mode if no jobs, schools, et cetera are listed
 - extract edit mode toggle button/s into component
 
 ##### Style
@@ -28,6 +29,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.9_
+
+- add 'delete' button for experience
+- integrate delete button into education
 
 _0.2.8_
 

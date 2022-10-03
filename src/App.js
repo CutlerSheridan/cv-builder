@@ -62,6 +62,12 @@ class App extends Component {
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addJobOrProgram = this.addJobOrProgram.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+  }
+  toggleEditing() {
+    this.setState((state) => ({
+      editing: !state.editing,
+    }));
   }
   handleChange = (e, section, prop) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
@@ -102,11 +108,39 @@ class App extends Component {
       });
     }
   };
-  toggleEditing() {
-    this.setState((state) => ({
-      editing: !state.editing,
-    }));
-  }
+  removeItem = (objId) => {
+    const stateCopy = JSON.parse(JSON.stringify(this.state));
+    for (let prop in stateCopy) {
+      let arrayName;
+      switch (prop) {
+        case 'experience':
+          arrayName = 'jobs';
+          break;
+        case 'education':
+          arrayName = 'programs';
+          break;
+        // case 'skills':
+        //   arrayName = 'allSkills';
+        //   break;
+        default:
+          break;
+      }
+      if (arrayName) {
+        const objIndex = stateCopy[prop][arrayName].findIndex(
+          (x) => x.id === objId
+        );
+        if (objIndex > -1) {
+          stateCopy[prop][arrayName] = stateCopy[prop][arrayName].filter(
+            (x) => x.id !== objId
+          );
+          this.setState({
+            [prop]: stateCopy[prop],
+          });
+          break;
+        }
+      }
+    }
+  };
   isLastObjEmpty = (objArray) => {
     if (objArray.length === 0) {
       return false;
@@ -139,12 +173,14 @@ class App extends Component {
             editing={this.state.editing}
             onchange={this.handleChange}
             handleAddClick={this.addJobOrProgram}
+            handleRemoveClick={this.removeItem}
           ></Experience>
           <Education
             info={this.state.education}
             editing={this.state.editing}
             onchange={this.handleChange}
             handleAddClick={this.addJobOrProgram}
+            handleRemoveClick={this.removeItem}
           ></Education>
         </div>
       </div>

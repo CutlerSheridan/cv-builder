@@ -10,18 +10,22 @@ class Contact extends Component {
       <section className="section-container">
         <Sidebar text="Name"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          <div className="item-container">{info.name}</div>
-          <div className="item-container">{info.email}</div>
-          <div className="item-container">{info.phone}</div>
+          <div className="group">
+            <div className="item-container">{info.name}</div>
+            <div className="item-container">{info.email}</div>
+            <div className="item-container">{info.phone}</div>
+          </div>
         </div>
 
         <form className={`${editing ? '' : 'hidden'}`}>
-          <AllItems
-            obj={info}
-            onchange={onchange}
-            section="contact"
-            inputProps={['name', 'email', 'phone']}
-          ></AllItems>
+          <div className="group-edit">
+            <AllItems
+              obj={info}
+              onchange={onchange}
+              section="contact"
+              inputProps={['name', 'email', 'phone']}
+            ></AllItems>
+          </div>
         </form>
         <p className="editTest">
           {this.props.editing ? 'is being edited' : 'is not being edited'}

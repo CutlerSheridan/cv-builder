@@ -22,6 +22,15 @@ body {
   display: flex;
   border: 1px solid red;
 }
+.group {
+  margin: 1rem;
+  border: 3px solid green;
+}
+.group-edit {
+  margin: 1rem;
+  font-size: 1.4rem;
+  border: 3px solid blue;
+}
 .item-container {
   background: orange;
 }

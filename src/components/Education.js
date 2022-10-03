@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
 import Add from './Add';
+import Remove from './Remove';
 
 class Education extends Component {
   render() {
@@ -12,7 +13,7 @@ class Education extends Component {
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
           {info.programs.map((p) => {
             return (
-              <div className="program" key={`static_${p.id}`}>
+              <div className="group program" key={`static_${p.id}`}>
                 <div className="item-container">{p.school}</div>
                 <div className="item-container">
                   {p.start} - {p.end}
@@ -26,7 +27,7 @@ class Education extends Component {
         <form className={`${editing ? '' : 'hidden'}`}>
           {info.programs.map((p) => {
             return (
-              <div className="program-edit" key={`program_${p.id}`}>
+              <div className="group-edit program-edit" key={`program_${p.id}`}>
                 <AllItems
                   obj={p}
                   onchange={onchange}
@@ -39,6 +40,10 @@ class Education extends Component {
                     'description',
                   ]}
                 ></AllItems>
+                <Remove
+                  objId={p.id}
+                  handleRemoveClick={this.props.handleRemoveClick}
+                ></Remove>
               </div>
             );
           })}

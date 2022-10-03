@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
 import Add from './Add';
+import Remove from './Remove';
 
 class Experience extends Component {
   render() {
@@ -11,7 +12,7 @@ class Experience extends Component {
         <Sidebar text="Experience"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
           {info.jobs.map((j) => (
-            <div className="job" key={`static_${j.id}`}>
+            <div className="group job" key={`static_${j.id}`}>
               <div className="item-container">{j.company}</div>
               <div className="item-container">{j.title}</div>
               <div className="item-container">
@@ -24,7 +25,7 @@ class Experience extends Component {
         <form className={`${editing ? '' : 'hidden'}`}>
           {info.jobs.map((j) => {
             return (
-              <div className="job-edit" key={`job_${j.id}`}>
+              <div className="group-edit job-edit" key={`job_${j.id}`}>
                 <AllItems
                   obj={j}
                   onchange={this.props.onchange}
@@ -37,6 +38,10 @@ class Experience extends Component {
                     'description',
                   ]}
                 ></AllItems>
+                <Remove
+                  objId={j.id}
+                  handleRemoveClick={this.props.handleRemoveClick}
+                ></Remove>
               </div>
             );
           })}
