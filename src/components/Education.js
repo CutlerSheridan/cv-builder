@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
+import Add from './Add';
 
 class Education extends Component {
   render() {
@@ -41,6 +42,10 @@ class Education extends Component {
               </div>
             );
           })}
+          <Add
+            section="education"
+            handleAddClick={this.props.handleAddClick}
+          ></Add>
         </form>
       </section>
     );

@@ -18,8 +18,6 @@ class Experience extends Component {
                 {j.start} - {j.end}
               </div>
               <div className="item-container">{j.description}</div>
-              <div className="item-container">{j.id}</div>
-              <div className="item-container">{`num of jobs: ${info.jobs.length}`}</div>
             </div>
           ))}
         </div>

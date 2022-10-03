@@ -91,19 +91,37 @@ class App extends Component {
     const jobOrProgram = section === 'experience' ? 'job' : 'program';
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
 
-    newObj[jobOrProgram].id = uniqid();
-    newObj[`${jobOrProgram}s`] = newObj[`${jobOrProgram}s`].concat(
-      newObj[jobOrProgram]
-    );
-    this.setState({
-      [section]: newObj,
-    });
+    // console.log(newObj[`${jobOrProgram}s`]);
+    if (!this.isLastObjEmpty(newObj[`${jobOrProgram}s`])) {
+      newObj[jobOrProgram].id = uniqid();
+      newObj[`${jobOrProgram}s`] = newObj[`${jobOrProgram}s`].concat(
+        newObj[jobOrProgram]
+      );
+      this.setState({
+        [section]: newObj,
+      });
+    }
   };
   toggleEditing() {
     this.setState((state) => ({
       editing: !state.editing,
     }));
   }
+  isLastObjEmpty = (objArray) => {
+    if (objArray.length === 0) {
+      return false;
+    }
+    const lastObj = objArray[objArray.length - 1];
+    for (let prop in lastObj) {
+      if (prop === 'id') {
+        continue;
+      }
+      if (lastObj[prop] !== '') {
+        return false;
+      }
+    }
+    return true;
+  };
   render() {
     return (
       <div className="cv-container">
@@ -126,6 +144,7 @@ class App extends Component {
             info={this.state.education}
             editing={this.state.editing}
             onchange={this.handleChange}
+            handleAddClick={this.addJobOrProgram}
           ></Education>
         </div>
       </div>

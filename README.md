@@ -6,14 +6,12 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- integrate add button into education
-- prevent add button from adding new section if current section is empty
+- add 'delete' button for experience
 
 #### TODO LATER
 
 ##### Features
 
-- add 'delete' button for experience
 - build Skills component
 - make form retain information upon refresh
 - add sample data button
@@ -30,6 +28,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.2.8_
+
+- integrate add button into education
+- prevent add button from adding new section if current section is empty
 
 _0.2.7.1_
 
