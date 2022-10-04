@@ -6,13 +6,13 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- refactor add to work with Skills
+- make static skills display as grid
+- make edit skills display as grid
 
 #### TODO LATER
 
 ##### Features
 
-- refactor add to work with skills as well
 - make form retain information upon refresh
 - add sample data button
 - add clear data button (with confirmation)
@@ -29,6 +29,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.3.1_
+
+- refactor handleChange() to work with Skills
+- refactor add to work with Skills
 
 _0.3.0_
 

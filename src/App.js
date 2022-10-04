@@ -80,7 +80,7 @@ class App extends Component {
     };
     this.toggleEditing = this.toggleEditing.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.addJobOrProgram = this.addJobOrProgram.bind(this);
+    this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
   }
   toggleEditing() {
@@ -95,33 +95,57 @@ class App extends Component {
       this.setState({
         [section]: newObj,
       });
-    } else if (section === 'experience' || section === 'education') {
-      const jobsOrPrograms = section === 'experience' ? 'jobs' : 'programs';
-      newObj[jobsOrPrograms] = newObj[jobsOrPrograms].map((x) => {
-        if (x.id !== e.target.dataset.id) {
-          return x;
-        }
-        const alteredItem = { ...x };
-        alteredItem[prop] = e.target.value;
-        return alteredItem;
-      });
-      this.setState({
-        [section]: newObj,
-      });
-    } else if (section === 'skills') {
-      // change things
+      return;
     }
+    let arrayName;
+    switch (section) {
+      case 'experience':
+        arrayName = 'jobs';
+        break;
+      case 'education':
+        arrayName = 'programs';
+        break;
+      case 'skills':
+        arrayName = 'allSkills';
+        break;
+      default:
+        break;
+    }
+    newObj[arrayName] = newObj[arrayName].map((x) => {
+      if (x.id !== e.target.dataset.id) {
+        return x;
+      }
+      const alteredItem = { ...x };
+      alteredItem[prop] = e.target.value;
+      return alteredItem;
+    });
+    this.setState({
+      [section]: newObj,
+    });
   };
-  addJobOrProgram = (section) => {
-    const jobOrProgram = section === 'experience' ? 'job' : 'program';
+  addItem = (section) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
-
-    // console.log(newObj[`${jobOrProgram}s`]);
-    if (!this.isLastObjEmpty(newObj[`${jobOrProgram}s`])) {
-      newObj[jobOrProgram].id = uniqid();
-      newObj[`${jobOrProgram}s`] = newObj[`${jobOrProgram}s`].concat(
-        newObj[jobOrProgram]
-      );
+    let unitName;
+    let arrayName;
+    switch (section) {
+      case 'experience':
+        unitName = 'job';
+        arrayName = 'jobs';
+        break;
+      case 'education':
+        unitName = 'program';
+        arrayName = 'programs';
+        break;
+      case 'skills':
+        unitName = 'skill';
+        arrayName = 'allSkills';
+        break;
+      default:
+        break;
+    }
+    if (!this.isLastObjEmpty(newObj[arrayName])) {
+      newObj[unitName].id = uniqid();
+      newObj[arrayName] = newObj[arrayName].concat(newObj[unitName]);
       this.setState({
         [section]: newObj,
       });
@@ -191,21 +215,21 @@ class App extends Component {
             info={this.state.experience}
             editing={this.state.editing}
             onchange={this.handleChange}
-            handleAddClick={this.addJobOrProgram}
+            handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
           ></Experience>
           <Skills
             editing={this.state.editing}
             skills={this.state.skills}
             onchange={this.handleChange}
-            handleAddClick={this.addJobOrProgram}
+            handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
           ></Skills>
           <Education
             info={this.state.education}
             editing={this.state.editing}
             onchange={this.handleChange}
-            handleAddClick={this.addJobOrProgram}
+            handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
           ></Education>
         </div>
