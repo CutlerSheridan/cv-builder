@@ -19,7 +19,9 @@ class Education extends Component {
                   {p.start} - {p.end}
                 </div>
                 <div className="item-container">{p.focus}</div>
-                <div className="item-container">{p.description}</div>
+                <div className="item-container item-description-static">
+                  {p.description}
+                </div>
               </div>
             );
           })}
@@ -34,9 +36,9 @@ class Education extends Component {
                   section="education"
                   inputProps={[
                     'school',
+                    'focus',
                     'start',
                     'end',
-                    'focus',
                     'description',
                   ]}
                 ></AllItems>

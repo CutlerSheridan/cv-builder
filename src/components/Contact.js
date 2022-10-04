@@ -27,9 +27,6 @@ class Contact extends Component {
             ></AllItems>
           </div>
         </form>
-        <p className="editTest">
-          {this.props.editing ? 'is being edited' : 'is not being edited'}
-        </p>
       </section>
     );
   }

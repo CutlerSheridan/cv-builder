@@ -12,9 +12,9 @@ class App extends Component {
     this.state = {
       contact: {
         id: uniqid(),
-        name: 'cutler',
-        email: 'dsls.fj@ajof.com',
-        phone: '7705959505',
+        name: '',
+        email: '',
+        phone: '',
       },
       experience: {
         job: {
@@ -28,37 +28,29 @@ class App extends Component {
         jobs: [
           {
             id: uniqid(),
-            company: 'a company',
-            title: 'a title',
-            start: 'June 6th',
-            end: 'August 20th',
-            description: 'what this job was about',
+            company: '',
+            title: '',
+            start: '',
+            end: '',
+            description: '',
           },
         ],
       },
       skills: {
         skill: {
-          id: uniqid(),
+          id: '',
           skillName: '',
         },
         allSkills: [
           {
             id: uniqid(),
-            skillName: 'a test skill',
-          },
-          {
-            id: uniqid(),
-            skillName: 'powerpoint',
-          },
-          {
-            id: uniqid(),
-            skillName: 'communication',
+            skillName: '',
           },
         ],
       },
       education: {
         program: {
-          id: uniqid(),
+          id: '',
           school: '',
           start: '',
           end: '',
@@ -68,17 +60,19 @@ class App extends Component {
         programs: [
           {
             id: uniqid(),
-            school: 'a school',
-            start: '2011',
-            end: '2015',
-            focus: 'B.A. in Mass Media Telecom',
-            description: 'additional info',
+            school: '',
+            start: '',
+            end: '',
+            focus: '',
+            description: '',
           },
         ],
       },
       editing: true,
     };
     this.toggleEditing = this.toggleEditing.bind(this);
+    this.addSampleData = this.addSampleData.bind(this);
+    this.clearData = this.clearData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -87,6 +81,126 @@ class App extends Component {
     this.setState((state) => ({
       editing: !state.editing,
     }));
+  }
+  addSampleData() {
+    const newContact = {
+      id: uniqid(),
+      name: 'Vincent Adultman',
+      email: 'vincent.adultman@gmail.com',
+      phone: '770-555-1239',
+    };
+    this.setState({
+      contact: newContact,
+    });
+    const newExperience = JSON.parse(JSON.stringify(this.state.experience));
+    newExperience.jobs = [
+      {
+        id: uniqid(),
+        company: 'Business Company',
+        title: 'Mr. Executive',
+        start: 'June 10th, 2012',
+        end: 'August 21st, 2018',
+        description:
+          '- did lots of important business tasks\n- climbed the corporate ladder',
+      },
+    ];
+    this.setState({
+      experience: newExperience,
+    });
+    const newSkills = JSON.parse(JSON.stringify(this.state.skills));
+    newSkills.allSkills = [
+      {
+        id: uniqid(),
+        skillName: 'Doing business',
+      },
+      {
+        id: uniqid(),
+        skillName: 'Being an adult',
+      },
+      {
+        id: uniqid(),
+        skillName: 'Talking on the phone',
+      },
+    ];
+    this.setState({
+      skills: newSkills,
+    });
+    const newEducation = JSON.parse(JSON.stringify(this.state.education));
+    newEducation.programs = [
+      {
+        id: uniqid(),
+        school: 'A very expensive school',
+        start: '2000',
+        end: '2010',
+        focus: 'B.A. in Corporate Business Meetings',
+        description: 'Awarded "Probably the Oldest Student Here" award',
+      },
+    ];
+    this.setState({
+      education: newEducation,
+    });
+  }
+  clearData() {
+    this.setState({
+      contact: {
+        id: uniqid(),
+        name: '',
+        email: '',
+        phone: '',
+      },
+      experience: {
+        job: {
+          id: '',
+          company: '',
+          title: '',
+          start: '',
+          end: '',
+          description: '',
+        },
+        jobs: [
+          {
+            id: uniqid(),
+            company: '',
+            title: '',
+            start: '',
+            end: '',
+            description: '',
+          },
+        ],
+      },
+      skills: {
+        skill: {
+          id: '',
+          skillName: '',
+        },
+        allSkills: [
+          {
+            id: uniqid(),
+            skillName: '',
+          },
+        ],
+      },
+      education: {
+        program: {
+          id: '',
+          school: '',
+          start: '',
+          end: '',
+          focus: '',
+          description: '',
+        },
+        programs: [
+          {
+            id: uniqid(),
+            school: '',
+            start: '',
+            end: '',
+            focus: '',
+            description: '',
+          },
+        ],
+      },
+    });
   }
   handleChange = (e, section, prop) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
@@ -202,8 +316,26 @@ class App extends Component {
   render() {
     return (
       <div className="cv-container">
-        <button className="editTest" type="button" onClick={this.toggleEditing}>
+        <button
+          type="button"
+          className="formControl edit-toggle"
+          onClick={this.toggleEditing}
+        >
           toggle edit mode
+        </button>
+        <button
+          type="button"
+          className="formControl demo-button"
+          onClick={this.addSampleData}
+        >
+          Add sample data
+        </button>
+        <button
+          type="button"
+          className="formControl clearData-button"
+          onClick={this.clearData}
+        >
+          Clear Data
         </button>
         <div className="cv">
           <Contact

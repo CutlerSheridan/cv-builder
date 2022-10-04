@@ -6,15 +6,13 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- make other section edit groups display as grids with description taking up bottom two rows
+- add confirmation to Clear Data button
 
 #### TODO LATER
 
 ##### Features
 
 - make form retain information upon refresh
-- add sample data button
-- add clear data button (with confirmation)
 
 ##### Behavior
 
@@ -24,10 +22,17 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
+- make edit toggle display different text depending on your view
 - make it fill page in print dialogue preview
 - add credit
 
 #### DONE
+
+_0.4.0_
+
+- make other section edit groups display as grids with description taking up bottom two rows
+- add sample data button
+- add clear data button
 
 _0.3.2_
 

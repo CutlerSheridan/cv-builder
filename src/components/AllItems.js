@@ -5,7 +5,7 @@ class AllItems extends Component {
   render() {
     const { obj, onchange, section, inputProps } = this.props;
     return (
-      <div className="itemGroup">
+      <div className={`${section === 'contact' ? '' : 'items-container-edit'}`}>
         {inputProps.map((p) => {
           return (
             <Item

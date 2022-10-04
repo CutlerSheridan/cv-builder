@@ -18,7 +18,9 @@ class Experience extends Component {
               <div className="item-container">
                 {j.start} - {j.end}
               </div>
-              <div className="item-container">{j.description}</div>
+              <div className="item-container item-description-static">
+                {j.description}
+              </div>
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ class Item extends Component {
   render() {
     const { obj, onchange, section, prop } = this.props;
     return (
-      <div className="item-container-edit">
+      <div className={`item-container-edit item-${prop}`}>
         <label htmlFor={`${prop}_${obj.id}`}>{prop}:</label>
         <input
           id={`${prop}_${obj.id}`}
