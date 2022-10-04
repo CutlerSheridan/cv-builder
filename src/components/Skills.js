@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../styles/Skills.css';
 import Sidebar from './Sidebar';
 import Item from './Item';
 import Add from './Add';
@@ -11,29 +12,34 @@ class Skills extends Component {
       <section className="section-container">
         <Sidebar text="Skills"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          <div className="group skills-container">
+          <ul className="group skills-container-static">
             {skills.allSkills.map((s) => (
-              <div className="item-container" key={`static_${s.id}`}>
+              <li
+                className="item-container skill-static"
+                key={`static_${s.id}`}
+              >
                 {s.skillName}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <form className={`${editing ? '' : 'hidden'}`}>
+          <div className="skills-container-edit">
+            {skills.allSkills.map((s) => (
+              <div className="group-edit skills-edit" key={`skill_${s.id}`}>
+                <Item
+                  obj={s}
+                  onchange={this.props.onchange}
+                  section="skills"
+                  prop="skillName"
+                ></Item>
+                <Remove
+                  objId={s.id}
+                  handleRemoveClick={this.props.handleRemoveClick}
+                ></Remove>
               </div>
             ))}
           </div>
-        </div>
-        <form className={`${editing ? '' : 'hidden'}`}>
-          {skills.allSkills.map((s) => (
-            <div className="group-edit skills-edit" key={`skill_${s.id}`}>
-              <Item
-                obj={s}
-                onchange={this.props.onchange}
-                section="skills"
-                prop="skillName"
-              ></Item>
-              <Remove
-                objId={s.id}
-                handleRemoveClick={this.props.handleRemoveClick}
-              ></Remove>
-            </div>
-          ))}
           <Add
             section="skills"
             handleAddClick={this.props.handleAddClick}

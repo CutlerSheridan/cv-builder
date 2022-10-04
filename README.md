@@ -6,8 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- make static skills display as grid
-- make edit skills display as grid
+- make other section edit groups display as grids with description taking up bottom two rows
 
 #### TODO LATER
 
@@ -29,6 +28,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.3.2_
+
+- make static skills display as grid
+- make edit skills display as grid
 
 _0.3.1_
 
