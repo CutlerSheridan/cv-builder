@@ -36,7 +36,26 @@ class App extends Component {
           },
         ],
       },
-      skills: [],
+      skills: {
+        skill: {
+          id: uniqid(),
+          skillName: '',
+        },
+        allSkills: [
+          {
+            id: uniqid(),
+            skillName: 'a test skill',
+          },
+          {
+            id: uniqid(),
+            skillName: 'powerpoint',
+          },
+          {
+            id: uniqid(),
+            skillName: 'communication',
+          },
+        ],
+      },
       education: {
         program: {
           id: uniqid(),
@@ -119,9 +138,9 @@ class App extends Component {
         case 'education':
           arrayName = 'programs';
           break;
-        // case 'skills':
-        //   arrayName = 'allSkills';
-        //   break;
+        case 'skills':
+          arrayName = 'allSkills';
+          break;
         default:
           break;
       }
@@ -175,6 +194,13 @@ class App extends Component {
             handleAddClick={this.addJobOrProgram}
             handleRemoveClick={this.removeItem}
           ></Experience>
+          <Skills
+            editing={this.state.editing}
+            skills={this.state.skills}
+            onchange={this.handleChange}
+            handleAddClick={this.addJobOrProgram}
+            handleRemoveClick={this.removeItem}
+          ></Skills>
           <Education
             info={this.state.education}
             editing={this.state.editing}

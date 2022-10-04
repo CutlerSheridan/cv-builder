@@ -6,7 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- build Skills component
+- refactor add to work with Skills
 
 #### TODO LATER
 
@@ -29,6 +29,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.3.0_
+
+- build Skills component
+- refactor remove to work with Skills
 
 _0.2.9_
 
