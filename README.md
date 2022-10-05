@@ -6,8 +6,8 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- prevent dates dash from appearing if no dates are present
-- prevent section header from appearing except in edit mode if no jobs, schools, et cetera are listed
+- prevent section from appearing except in edit mode if no jobs, schools, et cetera are listed
+- make description form boxes bigger
 
 #### TODO LATER
 
@@ -21,11 +21,23 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
-- make edit toggle display different text depending on your view
 - make it fill page in print dialogue preview
+- style Contact
+- style Experience
+- style Skills
+- style Education
+- style form elements
+- style buttons
+- add header
+- make edit toggle display different text depending on your view
 - add credit
 
 #### DONE
+
+_0.4.2_
+
+- prevent dates dash from appearing if no dates are present
+- prevent empty jobs or school programs from displaying
 
 _0.4.1_
 

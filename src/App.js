@@ -320,11 +320,14 @@ class App extends Component {
       return false;
     }
     const lastObj = objArray[objArray.length - 1];
-    for (let prop in lastObj) {
+    return this.isObjEmpty(lastObj);
+  };
+  isObjEmpty = (obj) => {
+    for (let prop in obj) {
       if (prop === 'id') {
         continue;
       }
-      if (lastObj[prop] !== '') {
+      if (obj[prop] !== '') {
         return false;
       }
     }
@@ -366,6 +369,7 @@ class App extends Component {
             onchange={this.handleChange}
             handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
+            isObjEmpty={this.isObjEmpty}
           ></Experience>
           <Skills
             editing={this.state.editing}
@@ -373,6 +377,7 @@ class App extends Component {
             onchange={this.handleChange}
             handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
+            isObjEmpty={this.isObjEmpty}
           ></Skills>
           <Education
             info={this.state.education}
@@ -380,6 +385,7 @@ class App extends Component {
             onchange={this.handleChange}
             handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
+            isObjEmpty={this.isObjEmpty}
           ></Education>
         </div>
       </div>

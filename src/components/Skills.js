@@ -13,14 +13,16 @@ class Skills extends Component {
         <Sidebar text="Skills"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
           <ul className="group skills-container-static">
-            {skills.allSkills.map((s) => (
-              <li
-                className="item-container skill-static"
-                key={`static_${s.id}`}
-              >
-                {s.skillName}
-              </li>
-            ))}
+            {skills.allSkills
+              .filter((s) => !this.props.isObjEmpty(s))
+              .map((s) => (
+                <li
+                  className="item-container skill-static"
+                  key={`static_${s.id}`}
+                >
+                  {s.skillName}
+                </li>
+              ))}
           </ul>
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>

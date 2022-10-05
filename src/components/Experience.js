@@ -11,18 +11,22 @@ class Experience extends Component {
       <section className="section-container">
         <Sidebar text="Experience"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          {info.jobs.map((j) => (
-            <div className="group job" key={`static_${j.id}`}>
-              <div className="item-container">{j.company}</div>
-              <div className="item-container">{j.title}</div>
-              <div className="item-container">
-                {j.start} - {j.end}
+          {info.jobs
+            .filter((j) => !this.props.isObjEmpty(j))
+            .map((j) => (
+              <div className="group job" key={`static_${j.id}`}>
+                <div className="item-container">{j.company}</div>
+                <div className="item-container">{j.title}</div>
+                <div className="item-container">
+                  {j.start}
+                  {j.start !== '' && j.end !== '' ? ' - ' : ''}
+                  {j.end}
+                </div>
+                <div className="item-container item-description-static">
+                  {j.description}
+                </div>
               </div>
-              <div className="item-container item-description-static">
-                {j.description}
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
           {info.jobs.map((j) => {

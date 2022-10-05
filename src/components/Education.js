@@ -11,20 +11,24 @@ class Education extends Component {
       <section className="section-container">
         <Sidebar text="Education"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          {info.programs.map((p) => {
-            return (
-              <div className="group program" key={`static_${p.id}`}>
-                <div className="item-container">{p.school}</div>
-                <div className="item-container">
-                  {p.start} - {p.end}
+          {info.programs
+            .filter((p) => !this.props.isObjEmpty(p))
+            .map((p) => {
+              return (
+                <div className="group program" key={`static_${p.id}`}>
+                  <div className="item-container">{p.school}</div>
+                  <div className="item-container">
+                    {p.start}
+                    {p.start !== '' && p.end !== '' ? ' - ' : ''}
+                    {p.end}
+                  </div>
+                  <div className="item-container">{p.focus}</div>
+                  <div className="item-container item-description-static">
+                    {p.description}
+                  </div>
                 </div>
-                <div className="item-container">{p.focus}</div>
-                <div className="item-container item-description-static">
-                  {p.description}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
           {info.programs.map((p) => {
