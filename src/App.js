@@ -140,7 +140,24 @@ class App extends Component {
       education: newEducation,
     });
   }
-  clearData() {
+  resetClearButton(e) {
+    const clearButton = document.querySelector('.clearData-button');
+    if (e.target !== clearButton) {
+      clearButton.textContent = 'Clear Data';
+      clearButton.classList.remove('confirming');
+    }
+  }
+  clearData = (e) => {
+    e.stopPropagation();
+    const el = e.target;
+    if (!el.classList.contains('confirming')) {
+      el.textContent = "You're sure?";
+      el.classList.add('confirming');
+      document.addEventListener('click', this.resetClearButton, { once: true });
+      return;
+    }
+    el.textContent = 'Clear Data';
+    el.classList.remove('confirming');
     this.setState({
       contact: {
         id: uniqid(),
@@ -201,7 +218,7 @@ class App extends Component {
         ],
       },
     });
-  }
+  };
   handleChange = (e, section, prop) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
     if (section === 'contact') {

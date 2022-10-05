@@ -6,7 +6,8 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- add confirmation to Clear Data button
+- prevent dates dash from appearing if no dates are present
+- prevent section header from appearing except in edit mode if no jobs, schools, et cetera are listed
 
 #### TODO LATER
 
@@ -16,8 +17,6 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Behavior
 
-- prevent dates dash from appearing if no dates are present
-- prevent section header from appearing except in edit mode if no jobs, schools, et cetera are listed
 - extract edit mode toggle button/s into component
 
 ##### Style
@@ -27,6 +26,10 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.4.1_
+
+- add confirmation to Clear Data button
 
 _0.4.0_
 
