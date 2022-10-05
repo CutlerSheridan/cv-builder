@@ -1,6 +1,5 @@
 .skills-container-static,
 .skills-container-edit {
-  /* width: 15rem; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -10,4 +9,7 @@ ul.skills-container-static {
 }
 .skill-static {
   border: 2px solid purple;
+}
+.hidden {
+  display: none;
 }

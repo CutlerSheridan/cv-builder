@@ -9,10 +9,22 @@ class Skills extends Component {
   render() {
     const { editing, skills } = this.props;
     return (
-      <section className="section-container">
+      <section
+        className={`section-container ${
+          !editing && skills.allSkills.length === 0 ? 'hidden' : ''
+        }`}
+      >
         <Sidebar text="Skills"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          <ul className="group skills-container-static">
+          <ul
+            className={`group skills-container-static ${
+              !editing &&
+              skills.allSkills.length <= 1 &&
+              this.props.isObjEmpty(skills.allSkills[0])
+                ? 'hidden'
+                : ''
+            }`}
+          >
             {skills.allSkills
               .filter((s) => !this.props.isObjEmpty(s))
               .map((s) => (

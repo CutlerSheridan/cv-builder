@@ -6,12 +6,16 @@ import Remove from './Remove';
 
 class Education extends Component {
   render() {
-    const { editing, info, onchange } = this.props;
+    const { editing, education, onchange } = this.props;
     return (
-      <section className="section-container">
+      <section
+        className={`section-container ${
+          !editing && education.programs.length === 0 ? 'hidden' : ''
+        }`}
+      >
         <Sidebar text="Education"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          {info.programs
+          {education.programs
             .filter((p) => !this.props.isObjEmpty(p))
             .map((p) => {
               return (
@@ -31,7 +35,7 @@ class Education extends Component {
             })}
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
-          {info.programs.map((p) => {
+          {education.programs.map((p) => {
             return (
               <div className="group-edit program-edit" key={`program_${p.id}`}>
                 <AllItems

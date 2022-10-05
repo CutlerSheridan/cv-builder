@@ -359,12 +359,13 @@ class App extends Component {
         </button>
         <div className="cv">
           <Contact
-            info={this.state.contact}
+            contact={this.state.contact}
             editing={this.state.editing}
             onchange={this.handleChange}
+            isObjEmpty={this.isObjEmpty}
           ></Contact>
           <Experience
-            info={this.state.experience}
+            experience={this.state.experience}
             editing={this.state.editing}
             onchange={this.handleChange}
             handleAddClick={this.addItem}
@@ -372,15 +373,15 @@ class App extends Component {
             isObjEmpty={this.isObjEmpty}
           ></Experience>
           <Skills
-            editing={this.state.editing}
             skills={this.state.skills}
+            editing={this.state.editing}
             onchange={this.handleChange}
             handleAddClick={this.addItem}
             handleRemoveClick={this.removeItem}
             isObjEmpty={this.isObjEmpty}
           ></Skills>
           <Education
-            info={this.state.education}
+            education={this.state.education}
             editing={this.state.editing}
             onchange={this.handleChange}
             handleAddClick={this.addItem}

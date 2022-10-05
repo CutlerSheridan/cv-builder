@@ -6,12 +6,16 @@ import Remove from './Remove';
 
 class Experience extends Component {
   render() {
-    const { editing, info } = this.props;
+    const { editing, experience } = this.props;
     return (
-      <section className="section-container">
+      <section
+        className={`section-container ${
+          !editing && experience.jobs.length === 0 ? 'hidden' : ''
+        }`}
+      >
         <Sidebar text="Experience"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          {info.jobs
+          {experience.jobs
             .filter((j) => !this.props.isObjEmpty(j))
             .map((j) => (
               <div className="group job" key={`static_${j.id}`}>
@@ -29,7 +33,7 @@ class Experience extends Component {
             ))}
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
-          {info.jobs.map((j) => {
+          {experience.jobs.map((j) => {
             return (
               <div className="group-edit job-edit" key={`job_${j.id}`}>
                 <AllItems

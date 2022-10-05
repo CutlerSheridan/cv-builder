@@ -5,22 +5,26 @@ import AllItems from './AllItems';
 
 class Contact extends Component {
   render() {
-    const { info, onchange, editing } = this.props;
+    const { contact, onchange, editing } = this.props;
     return (
       <section className="section-container">
         <Sidebar text="Name"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          <div className="group">
-            <div className="item-container">{info.name}</div>
-            <div className="item-container">{info.email}</div>
-            <div className="item-container">{info.phone}</div>
+          <div
+            className={`group ${
+              !editing && this.props.isObjEmpty(contact) ? 'hidden' : ''
+            }`}
+          >
+            <div className="item-container">{contact.name}</div>
+            <div className="item-container">{contact.email}</div>
+            <div className="item-container">{contact.phone}</div>
           </div>
         </div>
 
         <form className={`${editing ? '' : 'hidden'}`}>
           <div className="group-edit">
             <AllItems
-              obj={info}
+              obj={contact}
               onchange={onchange}
               section="contact"
               inputProps={['name', 'email', 'phone']}

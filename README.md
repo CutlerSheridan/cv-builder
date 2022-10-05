@@ -6,7 +6,6 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- prevent section from appearing except in edit mode if no jobs, schools, et cetera are listed
 - make description form boxes bigger
 
 #### TODO LATER
@@ -33,6 +32,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.4.3_
+
+- prevent content from appearing in sections if all content is empty
+- prevent sections from appearing if no content exists at all
 
 _0.4.2_
 
