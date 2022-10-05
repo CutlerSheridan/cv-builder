@@ -6,8 +6,7 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- make width fill page in print dialogue preview
-- spread sections vertically as needed to fill page
+- style Contact
 
 #### TODO LATER
 
@@ -21,7 +20,6 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
-- style Contact
 - style Experience
 - style Skills
 - style Education
@@ -32,6 +30,13 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.4.5_
+
+- make width fill page in print dialogue preview
+- give Sidebar a border so it shows up in pdf
+- add extra Sidebar filler to fill sidebar in pdf
+- Restyle list bullets as ::before elements for greater control over their distance from the bulleted item
 
 _0.4.4_
 

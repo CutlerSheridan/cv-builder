@@ -25,7 +25,7 @@ class Item extends Component {
       );
     }
     return (
-      <div className={`item-container-edit item-${prop}`}>
+      <div className={`item-container-edit item-${prop}-edit`}>
         <label htmlFor={`${prop}_${obj.id}`}>{prop}:</label>
         {inputBox}
       </div>

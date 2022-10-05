@@ -1,12 +1,20 @@
 .sidebar {
-  padding: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 2.3rem;
   width: 5rem;
   display: flex;
   justify-content: flex-end;
   background: grey;
+  border-right: 3px solid black;
+  /* border: 1px solid orange; */
+}
+.sidebar-filler {
+  height: 100%;
 }
 .sidebar-header {
+  /* margin-top: 1rem; */
   writing-mode: vertical-lr;
   transform: scale(-1);
   text-align: right;
+  /* border: 1px solid pink; */
 }

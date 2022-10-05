@@ -5,6 +5,7 @@ import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Education from './components/Education';
+import Sidebar from './components/Sidebar';
 
 class App extends Component {
   constructor() {
@@ -346,27 +347,29 @@ class App extends Component {
   render() {
     return (
       <div className="cv-container">
-        <button
-          type="button"
-          className="formControl edit-toggle"
-          onClick={this.toggleEditing}
-        >
-          toggle edit mode
-        </button>
-        <button
-          type="button"
-          className="formControl demo-button"
-          onClick={this.addSampleData}
-        >
-          Add sample data
-        </button>
-        <button
-          type="button"
-          className="formControl clearData-button"
-          onClick={this.clearData}
-        >
-          Clear Data
-        </button>
+        <div className="controls-container">
+          <button
+            type="button"
+            className="formControl edit-toggle"
+            onClick={this.toggleEditing}
+          >
+            toggle edit mode
+          </button>
+          <button
+            type="button"
+            className="formControl demo-button"
+            onClick={this.addSampleData}
+          >
+            Add sample data
+          </button>
+          <button
+            type="button"
+            className="formControl clearData-button"
+            onClick={this.clearData}
+          >
+            Clear Data
+          </button>
+        </div>
         <div className="cv">
           <Contact
             contact={this.state.contact}
@@ -398,6 +401,7 @@ class App extends Component {
             handleRemoveClick={this.removeItem}
             isObjEmpty={this.isObjEmpty}
           ></Education>
+          <Sidebar text=""></Sidebar>
         </div>
       </div>
     );

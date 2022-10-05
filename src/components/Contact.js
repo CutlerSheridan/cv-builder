@@ -15,9 +15,15 @@ class Contact extends Component {
               !editing && this.props.isObjEmpty(contact) ? 'hidden' : ''
             }`}
           >
-            <div className="item-container">{contact.name}</div>
-            <div className="item-container">{contact.email}</div>
-            <div className="item-container">{contact.phone}</div>
+            <div className="item-container contact-name-static">
+              {contact.name}
+            </div>
+            <div className="item-container contact-email-static">
+              {contact.email}
+            </div>
+            <div className="item-container contact-phone-static">
+              {contact.phone}
+            </div>
           </div>
         </div>
 

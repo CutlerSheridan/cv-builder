@@ -12,41 +12,63 @@ body {
   height: 100%;
   width: 100%;
   font-size: 2rem;
+  font-family: Helvetica, sans-serif;
 }
-
+@media only print {
+  header,
+  footer,
+  .controls-container {
+    display: none;
+  }
+}
 .formControl {
   margin: 1rem;
 }
-
+.cv-container {
+  height: 100vh;
+}
 .cv {
   margin: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
+@media only print {
+  .cv {
+    margin: 0;
+  }
+}
 .section-container {
   display: flex;
-  border: 1px solid red;
+}
+.section-preview {
+  /* border: 1px solid purple; */
 }
 .group {
-  margin: 1rem;
-  border: 3px solid green;
+  margin: 2rem;
 }
 .group-edit {
   margin: 1rem;
   font-size: 1.4rem;
   border: 3px solid blue;
 }
+.item-description-static {
+  white-space: pre;
+}
 .items-container-edit {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.item-description-static {
-  white-space: pre;
+.item-container-edit > label {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
-.item-description {
+.item-description-edit {
   grid-column: 1 / 3;
 }
 .item-container {
-  background: orange;
+  /* margin: 0.5rem; */
+  /* background: orange; */
 }
 .item-container > label {
   text-transform: capitalize;

@@ -4,11 +4,20 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
+.skills-container-static {
+  /* margin-left: 4rem; */
+}
 ul.skills-container-static {
-  list-style: '- ' inside;
+  list-style: none;
 }
 .skill-static {
-  border: 2px solid purple;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.skill-static::before {
+  content: '•';
+  position: absolute;
+  left: 0;
 }
 .hidden {
   display: none;
