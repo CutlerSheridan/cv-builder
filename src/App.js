@@ -101,7 +101,16 @@ class App extends Component {
         start: 'June 10th, 2012',
         end: 'August 21st, 2018',
         description:
-          '- did lots of important business tasks\n- climbed the corporate ladder',
+          '- Did lots of important business tasks\n- Climbed the corporate ladder\n- Had 1,000 meetings a day',
+      },
+      {
+        id: uniqid(),
+        company: 'Smith, Smith, & Smith',
+        title: 'Boss of Everything',
+        start: 'Many years',
+        end: '',
+        description:
+          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
       },
     ];
     this.setState({
@@ -129,11 +138,12 @@ class App extends Component {
     newEducation.programs = [
       {
         id: uniqid(),
-        school: 'A very expensive school',
+        school: 'Highly Respected University',
         start: '2000',
         end: '2010',
         focus: 'B.A. in Corporate Business Meetings',
-        description: 'Awarded "Probably the Oldest Student Here" award',
+        description:
+          'Voted "Least Likely to Be Three Children in a Trenchcoat"',
       },
     ];
     this.setState({

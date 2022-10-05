@@ -6,7 +6,8 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- make description form boxes bigger
+- make width fill page in print dialogue preview
+- spread sections vertically as needed to fill page
 
 #### TODO LATER
 
@@ -20,7 +21,6 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
-- make it fill page in print dialogue preview
 - style Contact
 - style Experience
 - style Skills
@@ -32,6 +32,11 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.4.4_
+
+- make description form boxes bigger
+- add second sample job
 
 _0.4.3_
 
