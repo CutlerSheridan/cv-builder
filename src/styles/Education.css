@@ -1,0 +1,19 @@
+.education-school-static {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+.education-dates-static {
+  margin: 0.4rem 0;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+.education-focus-static {
+  margin-bottom: 0.4rem;
+  /* letter-spacing: 0.04rem; */
+}
+.education-description-static {
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+  line-height: 2.6rem;
+  white-space: pre;
+}

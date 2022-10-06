@@ -1,8 +1,11 @@
 .contact-name-static {
-  margin: 0;
   font-size: 5rem;
+  font-weight: bold;
 }
 .contact-email-static,
 .contact-phone-static {
-  /* margin-left: 1.3rem; */
+  margin-left: 1.3rem;
+}
+.contact-email-static {
+  margin-bottom: 0.5rem;
 }

@@ -1,3 +1,4 @@
+import '../styles/Education.css';
 import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
@@ -20,14 +21,18 @@ class Education extends Component {
             .map((p) => {
               return (
                 <div className="group program" key={`static_${p.id}`}>
-                  <div className="item-container">{p.school}</div>
-                  <div className="item-container">
+                  <div className="item-container education-school-static">
+                    {p.school}
+                  </div>
+                  <div className="item-container education-dates-static">
                     {p.start}
                     {p.start !== '' && p.end !== '' ? ' - ' : ''}
                     {p.end}
                   </div>
-                  <div className="item-container">{p.focus}</div>
-                  <div className="item-container item-description-static">
+                  <div className="item-container education-focus-static">
+                    {p.focus}
+                  </div>
+                  <div className="item-container education-description-static">
                     {p.description}
                   </div>
                 </div>

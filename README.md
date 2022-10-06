@@ -6,7 +6,8 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 #### TODO NEXT
 
-- style Contact
+- add more sample skills
+- keep styling pdf
 
 #### TODO LATER
 
@@ -20,16 +21,20 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 
 ##### Style
 
-- style Experience
 - style Skills
-- style Education
 - style form elements
 - style buttons
-- add header
+- add header with instructions
 - make edit toggle display different text depending on your view
 - add credit
 
 #### DONE
+
+_0.4.6_
+
+- style Contact
+- style Experience
+- style Education
 
 _0.4.5_
 

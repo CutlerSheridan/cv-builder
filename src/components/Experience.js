@@ -1,3 +1,4 @@
+import '../styles/Experience.css';
 import { Component } from 'react';
 import Sidebar from './Sidebar';
 import AllItems from './AllItems';
@@ -19,14 +20,18 @@ class Experience extends Component {
             .filter((j) => !this.props.isObjEmpty(j))
             .map((j) => (
               <div className="group job" key={`static_${j.id}`}>
-                <div className="item-container">{j.company}</div>
-                <div className="item-container">{j.title}</div>
-                <div className="item-container">
+                <div className="item-container experience-company-static">
+                  {j.company}
+                </div>
+                <div className="item-container experience-title-static">
+                  {j.title}
+                </div>
+                <div className="item-container experience-dates-static">
                   {j.start}
                   {j.start !== '' && j.end !== '' ? ' - ' : ''}
                   {j.end}
                 </div>
-                <div className="item-container item-description-static">
+                <div className="item-container experience-description-static">
                   {j.description}
                 </div>
               </div>

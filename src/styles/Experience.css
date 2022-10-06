@@ -1,0 +1,20 @@
+.experience-company-static {
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+.experience-title-static {
+  margin: 0.4rem 0;
+  letter-spacing: 0.04rem;
+}
+.experience-dates-static {
+  /* margin-top: 0.3rem; */
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+.experience-description-static {
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+  line-height: 2.6rem;
+  white-space: pre;
+}
