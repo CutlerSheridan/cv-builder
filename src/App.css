@@ -1,4 +1,5 @@
 :root {
+  --color-pri: olivedrab;
   font-size: 62.5%;
 }
 * {
@@ -13,6 +14,13 @@ body {
   width: 100%;
   font-size: 2rem;
   font-family: Helvetica, sans-serif;
+  /* these force the print preview to display background colors */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  color: var(--color-pri);
 }
 @media only print {
   header,
@@ -33,19 +41,41 @@ body {
   display: flex;
   flex-direction: column;
 }
+@media only screen {
+  .cv {
+    border: 3px solid black;
+  }
+}
 @media only print {
   .cv {
     margin: 0;
   }
 }
+.filler-header {
+  display: flex;
+}
+.filler-headerContent {
+  height: 2.6rem;
+}
 .section-container {
   display: flex;
 }
 .section-preview {
+  padding: 2.3rem 2.6rem;
   /* border: 1px solid purple; */
 }
+.group-container {
+  padding-left: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  /* border: 1px solid brown; */
+  border-left: 1.5px solid var(--color-pri);
+}
 .group {
-  margin: 2rem;
+  /* border: 1px solid green; */
+  max-width: 45rem;
 }
 .group-edit {
   margin: 1rem;
@@ -62,10 +92,6 @@ body {
 }
 .item-description-edit {
   grid-column: 1 / 3;
-}
-.item-container {
-  /* margin: 0.5rem; */
-  /* background: orange; */
 }
 .item-container > label {
   text-transform: capitalize;

@@ -131,6 +131,14 @@ class App extends Component {
         id: uniqid(),
         skillName: 'Talking on the phone',
       },
+      {
+        id: uniqid(),
+        skillName: 'Excel',
+      },
+      {
+        id: uniqid(),
+        skillName: 'Making business deals',
+      },
     ];
     this.setState({
       skills: newSkills,
@@ -144,7 +152,7 @@ class App extends Component {
         end: '2010',
         focus: 'B.A. in Corporate Business Meetings',
         description:
-          'Voted "Least Likely to Be Three Children in a Trenchcoat"',
+          'Voted "Least Likely to Be Three Children in a Trenchcoat" by everybody at the school',
       },
     ];
     this.setState({
@@ -371,6 +379,10 @@ class App extends Component {
           </button>
         </div>
         <div className="cv">
+          <div className="filler-header">
+            <Sidebar text=" "></Sidebar>
+            <div className="filler-headerContent"></div>
+          </div>
           <Contact
             contact={this.state.contact}
             editing={this.state.editing}

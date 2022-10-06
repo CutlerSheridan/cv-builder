@@ -19,9 +19,15 @@ class Contact extends Component {
               {contact.name}
             </div>
             <div className="item-container contact-email-static">
+              <span className="material-symbols-outlined contact-icon">
+                mail
+              </span>
               {contact.email}
             </div>
             <div className="item-container contact-phone-static">
+              <span className="material-symbols-outlined contact-icon">
+                call
+              </span>
               {contact.phone}
             </div>
           </div>

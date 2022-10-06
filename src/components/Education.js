@@ -16,28 +16,30 @@ class Education extends Component {
       >
         <Sidebar text="Education"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          {education.programs
-            .filter((p) => !this.props.isObjEmpty(p))
-            .map((p) => {
-              return (
-                <div className="group program" key={`static_${p.id}`}>
-                  <div className="item-container education-school-static">
-                    {p.school}
+          <div className="group-container">
+            {education.programs
+              .filter((p) => !this.props.isObjEmpty(p))
+              .map((p) => {
+                return (
+                  <div className="group program" key={`static_${p.id}`}>
+                    <div className="item-container education-school-static">
+                      {p.school}
+                    </div>
+                    <div className="item-container education-focus-static">
+                      {p.focus}
+                    </div>
+                    <div className="item-container education-dates-static">
+                      {p.start}
+                      {p.start !== '' && p.end !== '' ? ' - ' : ''}
+                      {p.end}
+                    </div>
+                    <div className="item-container education-description-static">
+                      {p.description}
+                    </div>
                   </div>
-                  <div className="item-container education-dates-static">
-                    {p.start}
-                    {p.start !== '' && p.end !== '' ? ' - ' : ''}
-                    {p.end}
-                  </div>
-                  <div className="item-container education-focus-static">
-                    {p.focus}
-                  </div>
-                  <div className="item-container education-description-static">
-                    {p.description}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
           {education.programs.map((p) => {

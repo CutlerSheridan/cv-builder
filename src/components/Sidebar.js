@@ -7,7 +7,7 @@ class Sidebar extends Component {
       <div
         className={`sidebar ${this.props.text === '' ? 'sidebar-filler' : ''}`}
       >
-        <h2 className="sidebar-header">{this.props.text}</h2>
+        <h2 className="sidebar-header">{this.props.text.toUpperCase()}</h2>
       </div>
     );
   }

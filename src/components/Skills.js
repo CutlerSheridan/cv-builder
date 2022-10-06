@@ -16,26 +16,28 @@ class Skills extends Component {
       >
         <Sidebar text="Skills"></Sidebar>
         <div className={`section-preview ${editing ? 'hidden' : ''}`}>
-          <ul
-            className={`group skills-container-static ${
-              !editing &&
-              skills.allSkills.length <= 1 &&
-              this.props.isObjEmpty(skills.allSkills[0])
-                ? 'hidden'
-                : ''
-            }`}
-          >
-            {skills.allSkills
-              .filter((s) => !this.props.isObjEmpty(s))
-              .map((s) => (
-                <li
-                  className="item-container skill-static"
-                  key={`static_${s.id}`}
-                >
-                  {s.skillName}
-                </li>
-              ))}
-          </ul>
+          <div className="group-container">
+            <ul
+              className={`group skills-container-static ${
+                !editing &&
+                skills.allSkills.length <= 1 &&
+                this.props.isObjEmpty(skills.allSkills[0])
+                  ? 'hidden'
+                  : ''
+              }`}
+            >
+              {skills.allSkills
+                .filter((s) => !this.props.isObjEmpty(s))
+                .map((s) => (
+                  <li
+                    className="item-container skill-static"
+                    key={`static_${s.id}`}
+                  >
+                    {s.skillName}
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
         <form className={`${editing ? '' : 'hidden'}`}>
           <div className="skills-container-edit">

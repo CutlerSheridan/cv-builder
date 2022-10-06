@@ -2,18 +2,19 @@
   font-size: 2.3rem;
   font-weight: bold;
 }
-.education-dates-static {
-  margin: 0.4rem 0;
-  font-size: 1.8rem;
-  font-style: italic;
-}
 .education-focus-static {
-  margin-bottom: 0.4rem;
+  margin: 0.4rem 0 0.35rem 0;
   /* letter-spacing: 0.04rem; */
+}
+.education-dates-static {
+  margin-bottom: 0.7rem;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--color-pri);
 }
 .education-description-static {
   font-size: 1.8rem;
   letter-spacing: 0.05rem;
-  line-height: 2.6rem;
-  white-space: pre;
+  line-height: 2.4rem;
+  white-space: pre-wrap;
 }

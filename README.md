@@ -2,12 +2,11 @@
 
 ## Fill in your work and education experience, get a nice-looking CV
 
-Done using React. Toggling between edit and preview modes retains previously-entered information, as does refreshing the page.
+Created using React. Toggling between edit and preview modes retains previously-entered information, as does refreshing the page.
 
 #### TODO NEXT
 
-- add more sample skills
-- keep styling pdf
+- handle when résumé gets too long
 
 #### TODO LATER
 
@@ -29,6 +28,19 @@ Done using React. Toggling between edit and preview modes retains previously-ent
 - add credit
 
 #### DONE
+
+_0.4.7_
+
+- add more sample skills
+- give everything a max-width in the pdf
+- restructure sections' DOM
+- give each section a line to the left visually grouping all items in that section
+- force print preview to display background colors
+- add some touches of color
+- add icons for email and phone
+- add header filler section
+- adjust spacing around items
+- adjust spacing around groups
 
 _0.4.6_
 

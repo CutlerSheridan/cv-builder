@@ -1,20 +1,19 @@
 .sidebar {
-  padding-right: 0.5rem;
-  padding-top: 2.3rem;
-  width: 5rem;
+  padding-right: 1.6rem;
+  padding-top: 2.9rem;
+  width: 10rem;
   display: flex;
   justify-content: flex-end;
-  background: grey;
-  border-right: 3px solid black;
-  /* border: 1px solid orange; */
+  /* background: var(--color-pri); */
+  background: darkgrey;
+  /* border-right: 3px solid black; */
+  /* border: 1px solid pink; */
 }
 .sidebar-filler {
   height: 100%;
 }
 .sidebar-header {
-  /* margin-top: 1rem; */
   writing-mode: vertical-lr;
   transform: scale(-1);
   text-align: right;
-  /* border: 1px solid pink; */
 }
