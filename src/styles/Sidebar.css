@@ -1,6 +1,6 @@
 .sidebar {
   padding-right: 1.6rem;
-  padding-top: 2.9rem;
+  padding-top: 2.7rem;
   width: 10rem;
   display: flex;
   justify-content: flex-end;
@@ -8,9 +8,6 @@
   background: darkgrey;
   /* border-right: 3px solid black; */
   /* border: 1px solid pink; */
-}
-.sidebar-filler {
-  height: 100%;
 }
 .sidebar-header {
   writing-mode: vertical-lr;

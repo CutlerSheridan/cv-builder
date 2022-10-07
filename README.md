@@ -6,7 +6,7 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 #### TODO NEXT
 
-- handle when résumé gets too long
+- style form elements
 
 #### TODO LATER
 
@@ -20,14 +20,19 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 ##### Style
 
-- style Skills
-- style form elements
 - style buttons
 - add header with instructions
 - make edit toggle display different text depending on your view
 - add credit
 
 #### DONE
+
+_0.4.8_
+
+- get sidebar to at least fill page but also to keep growing if page gets too long, while also having cv background or border do the same
+  - this has been excruciating. It was a flex and I tried a million iterations of parents and children at different heights, min-heights
+  - finally got this to work by switching the .cv-container from a flex to a grid... but now the sidebar footer filler no longer fills in the print preview
+  - changed .cv min-height from 100% to 100vh and it WORKS. Thank god
 
 _0.4.7_
 

@@ -113,6 +113,33 @@ class App extends Component {
         description:
           '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
       },
+      {
+        id: uniqid(),
+        company: 'Smith, Smith, & Smith',
+        title: 'Boss of Everything',
+        start: 'Many years',
+        end: '',
+        description:
+          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
+      },
+      {
+        id: uniqid(),
+        company: 'Smith, Smith, & Smith',
+        title: 'Boss of Everything',
+        start: 'Many years',
+        end: '',
+        description:
+          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
+      },
+      {
+        id: uniqid(),
+        company: 'Smith, Smith, & Smith',
+        title: 'Boss of Everything',
+        start: 'Many years',
+        end: '',
+        description:
+          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
+      },
     ];
     this.setState({
       experience: newExperience,
@@ -354,6 +381,7 @@ class App extends Component {
   };
   render() {
     return (
+      // <div className="cv-outerContainer">
       <div className="cv-container">
         <div className="controls-container">
           <button
@@ -380,7 +408,7 @@ class App extends Component {
         </div>
         <div className="cv">
           <div className="filler-header">
-            <Sidebar text=" "></Sidebar>
+            <Sidebar text=""></Sidebar>
             <div className="filler-headerContent"></div>
           </div>
           <Contact
@@ -413,9 +441,14 @@ class App extends Component {
             handleRemoveClick={this.removeItem}
             isObjEmpty={this.isObjEmpty}
           ></Education>
-          <Sidebar text=""></Sidebar>
+          <div className="filler-footer">
+            <Sidebar text=""></Sidebar>
+            <div className="filler-footerContent"></div>
+          </div>
+          {/* <Sidebar text=""></Sidebar> */}
         </div>
       </div>
+      // </div>
     );
   }
 }

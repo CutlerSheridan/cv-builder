@@ -14,6 +14,7 @@ body {
   width: 100%;
   font-size: 2rem;
   font-family: Helvetica, sans-serif;
+  background: green;
   /* these force the print preview to display background colors */
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -29,21 +30,29 @@ body {
     display: none;
   }
 }
+.cv-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template: 5rem 1fr / 1fr;
+}
+.controls-container {
+  height: 5rem;
+  border: 3px solid pink;
+}
 .formControl {
   margin: 1rem;
 }
-.cv-container {
-  height: 100vh;
-}
 .cv {
   margin: 2rem;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: white;
 }
 @media only screen {
   .cv {
     border: 3px solid black;
+    /* box-shadow: 0 0 1rem 0.5rem rgb(50, 50, 50, 0.2); */
   }
 }
 @media only print {
@@ -96,7 +105,13 @@ body {
 .item-container > label {
   text-transform: capitalize;
 }
-
+.filler-footer {
+  height: 100%;
+  display: flex;
+}
+.filler-footerContent {
+  height: 100%;
+}
 .hidden {
   display: none;
 }
