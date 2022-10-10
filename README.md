@@ -6,8 +6,7 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 #### TODO NEXT
 
-- style form control buttons
-- add header with instructions
+- add credit
 
 #### TODO LATER
 
@@ -21,11 +20,14 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 ##### Style
 
-- add third job to sample data
-- make edit toggle display different text depending on your view
-- add credit
-
 #### DONE
+
+_0.4.10_
+
+- style form control buttons
+- add header with instructions
+- make edit toggle display different text depending on your view
+- add third job to sample data
 
 _0.4.9_
 

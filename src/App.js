@@ -99,7 +99,7 @@ class App extends Component {
         id: uniqid(),
         company: 'Business Company',
         title: 'Mr. Executive',
-        start: 'June 10th, 2012',
+        start: 'October 10th, 2012',
         end: 'August 21st, 2018',
         description:
           '- Did lots of important business tasks\n- Climbed the corporate ladder\n- Had 1,000 meetings a day',
@@ -108,19 +108,19 @@ class App extends Component {
         id: uniqid(),
         company: 'Smith, Smith, & Smith',
         title: 'Boss of Everything',
-        start: 'Many years',
-        end: '',
+        start: 'March 2009',
+        end: 'June 2012',
         description:
           '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
       },
       {
         id: uniqid(),
-        company: 'Smith, Smith, & Smith',
-        title: 'Boss of Everything',
+        company: 'Important Company, Inc.',
+        title: 'Adult Person in Charge',
         start: 'Many years',
         end: '',
         description:
-          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
+          '- Got my fellow adults to do all the things they were supposed to do\n- Showed everyone a lot of Powerpoints about business',
       },
     ];
     this.setState({
@@ -158,7 +158,7 @@ class App extends Component {
         id: uniqid(),
         school: 'Highly Respected University',
         start: '2000',
-        end: '2010',
+        end: '2003',
         focus: 'B.A. in Corporate Business Meetings',
         description:
           'Voted "Least Likely to Be Three Children in a Trenchcoat" by everybody at the school',
@@ -365,29 +365,37 @@ class App extends Component {
     return (
       // <div className="cv-outerContainer">
       <div className="cv-container">
-        <div className="controls-container">
-          <button
-            type="button"
-            className="formControl edit-toggle"
-            onClick={this.toggleEditing}
-          >
-            toggle edit mode
-          </button>
-          <button
-            type="button"
-            className="formControl demo-button"
-            onClick={this.addSampleData}
-          >
-            Add sample data
-          </button>
-          <button
-            type="button"
-            className="formControl clearData-button"
-            onClick={this.clearData}
-          >
-            Clear Data
-          </button>
-        </div>
+        <header>
+          <h1>CV Builder</h1>
+          <p>Enter your information, then press "Toggle preview mode."</p>
+          <p>
+            To save your CV as a PDF, open your browser's print preview and
+            select "export as PDF" or "save as PDF."
+          </p>
+          <div className="controls-container">
+            <button
+              type="button"
+              className="formControl edit-toggle"
+              onClick={this.toggleEditing}
+            >
+              {this.state.editing ? 'Toggle preview mode' : 'Toggle edit mode'}
+            </button>
+            <button
+              type="button"
+              className="formControl demo-button"
+              onClick={this.addSampleData}
+            >
+              Add sample data
+            </button>
+            <button
+              type="button"
+              className="formControl clearData-button"
+              onClick={this.clearData}
+            >
+              Clear Data
+            </button>
+          </div>
+        </header>
         <div className="cv">
           <div className="filler-header">
             <Sidebar text=""></Sidebar>
