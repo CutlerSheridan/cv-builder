@@ -41,7 +41,7 @@ class Education extends Component {
               })}
           </div>
         </div>
-        <form className={`${editing ? '' : 'hidden'}`}>
+        <form className={`${editing ? '' : 'hidden'} education-container-edit`}>
           {education.programs.map((p) => {
             return (
               <div className="group-edit program-edit" key={`program_${p.id}`}>

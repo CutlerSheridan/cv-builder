@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../styles/Add.css';
 
 class Add extends Component {
   render() {
@@ -8,7 +9,7 @@ class Add extends Component {
         className="addButton"
         onClick={() => this.props.handleAddClick(this.props.section)}
       >
-        <div>add</div>
+        <div>+</div>
       </button>
     );
   }

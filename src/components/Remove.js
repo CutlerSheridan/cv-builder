@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import '../styles/Remove.css';
 
 class Remove extends Component {
   render() {

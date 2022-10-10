@@ -18,3 +18,17 @@
   line-height: 2.4rem;
   white-space: pre-wrap;
 }
+
+.experience-container-edit {
+  margin-top: 3rem;
+  position: relative;
+  gap: 0.2rem;
+}
+.experience-container-edit::before {
+  content: '';
+  position: absolute;
+  top: -1.2rem;
+  left: 1.3rem;
+  width: calc(100% - 2.6rem);
+  border-top: 3px dotted var(--color-pri);
+}

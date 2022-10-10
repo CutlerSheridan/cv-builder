@@ -39,7 +39,9 @@ class Experience extends Component {
               ))}
           </div>
         </div>
-        <form className={`${editing ? '' : 'hidden'}`}>
+        <form
+          className={`${editing ? '' : 'hidden'} experience-container-edit`}
+        >
           {experience.jobs.map((j) => {
             return (
               <div className="group-edit job-edit" key={`job_${j.id}`}>

@@ -122,24 +122,6 @@ class App extends Component {
         description:
           '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
       },
-      {
-        id: uniqid(),
-        company: 'Smith, Smith, & Smith',
-        title: 'Boss of Everything',
-        start: 'Many years',
-        end: '',
-        description:
-          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
-      },
-      {
-        id: uniqid(),
-        company: 'Smith, Smith, & Smith',
-        title: 'Boss of Everything',
-        start: 'Many years',
-        end: '',
-        description:
-          '- Made everyone 142x more money\n- Expanded the company to every city on Earth',
-      },
     ];
     this.setState({
       experience: newExperience,

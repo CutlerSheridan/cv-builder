@@ -1,0 +1,18 @@
+.addButton {
+  margin: 0.1rem 0.6rem 0.7rem 1.3rem;
+  padding: 0rem 0.8rem;
+  font-family: monospace;
+  font-size: 2.6rem;
+  font-weight: bold;
+  background: var(--color-pri);
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+}
+.addButton:hover {
+  cursor: pointer;
+  background: rgb(77, 103, 25);
+}
+.addButton:active {
+  background: var(--color-pri);
+}

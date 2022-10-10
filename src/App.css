@@ -14,7 +14,7 @@ body {
   width: 100%;
   font-size: 2rem;
   font-family: Helvetica, sans-serif;
-  background: green;
+  background: var(--color-pri);
   /* these force the print preview to display background colors */
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -52,6 +52,7 @@ body {
 @media only screen {
   .cv {
     border: 3px solid black;
+    border-radius: 0.6rem;
     /* box-shadow: 0 0 1rem 0.5rem rgb(50, 50, 50, 0.2); */
   }
 }
@@ -68,10 +69,10 @@ body {
 }
 .section-container {
   display: flex;
+  /* border: 1px solid var(--color-pri); */
 }
 .section-preview {
   padding: 2.3rem 2.6rem;
-  /* border: 1px solid purple; */
 }
 .group-container {
   padding-left: 1.6rem;
@@ -79,18 +80,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  /* border: 1px solid brown; */
   border-left: 1.5px solid var(--color-pri);
 }
 .group {
-  /* border: 1px solid green; */
   max-width: 45rem;
 }
 .group-edit {
   margin: 1rem;
   font-size: 1.4rem;
-  border: 3px solid blue;
+  border: 3px solid var(--color-pri);
+  border-radius: 0.4rem;
 }
+
 .items-container-edit {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

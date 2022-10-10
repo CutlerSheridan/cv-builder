@@ -6,7 +6,8 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 #### TODO NEXT
 
-- style form elements
+- style form control buttons
+- add header with instructions
 
 #### TODO LATER
 
@@ -20,12 +21,20 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 ##### Style
 
-- style buttons
-- add header with instructions
+- add third job to sample data
 - make edit toggle display different text depending on your view
 - add credit
 
 #### DONE
+
+_0.4.9_
+
+- round form borders
+- style Remove buttons
+- style group edit borders
+- add section separators for edit form
+- refactor form section divider css so it appears even if that section is empty
+- style Add button
 
 _0.4.8_
 

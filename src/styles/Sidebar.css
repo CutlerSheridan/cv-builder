@@ -14,3 +14,9 @@
   transform: scale(-1);
   text-align: right;
 }
+.filler-header > .sidebar {
+  border-top-left-radius: 0.3rem;
+}
+.filler-footer > .sidebar {
+  border-bottom-left-radius: 0.3rem;
+}

@@ -1,0 +1,14 @@
+.removeButton {
+  margin: 0.3rem 0.6rem 0.7rem 0.6rem;
+  padding: 0.4rem 1rem;
+  font-family: helvetica;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: darkgrey;
+  border: none;
+  border-radius: 0.6rem;
+}
+.removeButton:hover {
+  cursor: pointer;
+  background: grey;
+}

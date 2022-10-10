@@ -2,10 +2,20 @@
 .skills-container-edit {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.8rem;
 }
-.skills-container-static {
-  /* margin-left: 4rem; */
+.skills-container-edit {
+  margin-top: 3rem;
+  position: relative;
+  gap: 0rem;
+}
+.skills-container-edit::before {
+  content: '';
+  position: absolute;
+  top: -1.2rem;
+  left: 1.3rem;
+  width: calc(100% - 2.6rem);
+  border-top: 3px dotted var(--color-pri);
 }
 ul.skills-container-static {
   list-style: none;
@@ -13,7 +23,6 @@ ul.skills-container-static {
 .skill-static {
   position: relative;
   padding-left: 1.6rem;
-  /* max-width: 25rem; */
 }
 .skill-static::before {
   content: '•';
