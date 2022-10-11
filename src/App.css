@@ -56,7 +56,6 @@ header > p {
   padding: 1.3rem;
   display: flex;
   gap: 1rem;
-  /* border: 3px solid var(--color-pri); */
   background: var(--color-pri);
   border-radius: 0.6rem;
 }
@@ -84,7 +83,6 @@ header > p {
   .cv {
     border: 3px solid black;
     border-radius: 0.6rem;
-    /* box-shadow: 0 0 1rem 0.5rem rgb(50, 50, 50, 0.2); */
   }
 }
 @media only print {
@@ -100,7 +98,6 @@ header > p {
 }
 .section-container {
   display: flex;
-  /* border: 1px solid var(--color-pri); */
 }
 .section-preview {
   padding: 2.3rem 2.6rem;

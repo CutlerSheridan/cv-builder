@@ -78,6 +78,12 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.alterStoredState = this.alterStoredState.bind(this);
+  }
+  componentDidMount() {
+    if (localStorage.getItem('storedState')) {
+      this.setState({ ...JSON.parse(localStorage.getItem('storedState')) });
+    }
   }
   toggleEditing() {
     this.setState((state) => ({
@@ -168,6 +174,15 @@ class App extends Component {
     this.setState({
       education: newEducation,
     });
+    localStorage.setItem(
+      'storedState',
+      JSON.stringify({
+        contact: { ...newContact },
+        experience: { ...newExperience },
+        skills: { ...newSkills },
+        education: { ...newEducation },
+      })
+    );
   }
   resetClearButton(e) {
     const clearButton = document.querySelector('.clearData-button');
@@ -247,6 +262,7 @@ class App extends Component {
         ],
       },
     });
+    localStorage.clear();
   };
   handleChange = (e, section, prop) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
@@ -255,6 +271,7 @@ class App extends Component {
       this.setState({
         [section]: newObj,
       });
+      this.alterStoredState(section, newObj);
       return;
     }
     let arrayName;
@@ -282,6 +299,17 @@ class App extends Component {
     this.setState({
       [section]: newObj,
     });
+    this.alterStoredState(section, newObj);
+  };
+  alterStoredState = (section, newObj) => {
+    let storedState;
+    if (localStorage.getItem('storedState')) {
+      storedState = JSON.parse(localStorage.getItem('storedState'));
+    } else {
+      storedState = JSON.parse(JSON.stringify(this.state));
+    }
+    storedState[section] = newObj;
+    localStorage.setItem('storedState', JSON.stringify(storedState));
   };
   addItem = (section) => {
     const newObj = JSON.parse(JSON.stringify(this.state[section]));
@@ -310,6 +338,7 @@ class App extends Component {
         [section]: newObj,
       });
     }
+    this.alterStoredState(section, newObj);
   };
   removeItem = (objId) => {
     const stateCopy = JSON.parse(JSON.stringify(this.state));
@@ -339,6 +368,7 @@ class App extends Component {
           this.setState({
             [prop]: stateCopy[prop],
           });
+          this.alterStoredState(prop, stateCopy[prop]);
           break;
         }
       }

@@ -4,10 +4,7 @@
   width: 10rem;
   display: flex;
   justify-content: flex-end;
-  /* background: var(--color-pri); */
   background: darkgrey;
-  /* border-right: 3px solid black; */
-  /* border: 1px solid pink; */
 }
 .sidebar-header {
   writing-mode: vertical-lr;

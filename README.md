@@ -2,11 +2,17 @@
 
 ## Fill in your work and education experience, get a nice-looking CV
 
-Created using React. Toggling between edit and preview modes retains previously-entered information, as does refreshing the page.
+Created using React.
+
+Click the toggle to switch between preview mode and edit mode.
+
+See a demo by clicking "Add sample data." Clear the sample data and anything you've manually input by clicking "Clear data."
+
+Toggling between edit and preview modes retains previously-entered information, as does refreshing the page.
+
+Use your browser's print preview to save your résumé as a PDF.
 
 #### TODO NEXT
-
-- make form retain information upon refresh
 
 #### TODO LATER
 
@@ -17,6 +23,13 @@ Created using React. Toggling between edit and preview modes retains previously-
 ##### Style
 
 #### DONE
+
+_1.0.0_
+
+- get sample data to persist upon refresh
+- get cleared data to persist upon refresh
+- get manually-input data to persist upon refresh
+- clean up comments and console.logs
 
 _0.4.11_
 
