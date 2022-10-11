@@ -6,21 +6,23 @@ Created using React. Toggling between edit and preview modes retains previously-
 
 #### TODO NEXT
 
-- add credit
+- make form retain information upon refresh
 
 #### TODO LATER
 
 ##### Features
 
-- make form retain information upon refresh
-
 ##### Behavior
-
-- extract edit mode toggle button/s into component
 
 ##### Style
 
 #### DONE
+
+_0.4.11_
+
+- make description boxes display three rows of text
+- fix form skill labels so they don't say 'SkillName:'
+- add credit
 
 _0.4.10_
 

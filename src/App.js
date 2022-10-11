@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor() {
@@ -363,7 +364,6 @@ class App extends Component {
   };
   render() {
     return (
-      // <div className="cv-outerContainer">
       <div className="cv-container">
         <header>
           <h1>CV Builder</h1>
@@ -435,10 +435,9 @@ class App extends Component {
             <Sidebar text=""></Sidebar>
             <div className="filler-footerContent"></div>
           </div>
-          {/* <Sidebar text=""></Sidebar> */}
         </div>
+        <Footer></Footer>
       </div>
-      // </div>
     );
   }
 }

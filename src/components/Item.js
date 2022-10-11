@@ -21,12 +21,15 @@ class Item extends Component {
           data-id={obj.id}
           onChange={(e) => onchange(e, section, prop)}
           value={obj[prop]}
+          rows="3"
         ></textarea>
       );
     }
     return (
       <div className={`item-container-edit item-${prop}-edit`}>
-        <label htmlFor={`${prop}_${obj.id}`}>{prop}:</label>
+        <label htmlFor={`${prop}_${obj.id}`}>
+          {prop !== 'skillName' ? prop : 'skill'}:
+        </label>
         {inputBox}
       </div>
     );
