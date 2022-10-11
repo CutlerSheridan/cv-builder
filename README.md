@@ -24,6 +24,10 @@ Use your browser's print preview to save your résumé as a PDF.
 
 #### DONE
 
+_1.0.1_
+
+- add a max-width to the cv body
+
 _1.0.0_
 
 - get sample data to persist upon refresh
