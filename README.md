@@ -14,6 +14,8 @@ Use your browser's print preview to save your résumé as a PDF.
 
 #### TODO NEXT
 
+-refactor app to use hooks
+
 #### TODO LATER
 
 ##### Features
@@ -23,6 +25,20 @@ Use your browser's print preview to save your résumé as a PDF.
 ##### Style
 
 #### DONE
+
+_1.1.0_
+
+- refactor component classes into functional components using hooks
+  - refactor Footer
+  - refactor Item
+  - refactor AllItems
+  - refactor Sidebar
+  - refactor Skills
+  - refactor Education
+  - refactor Experience
+  - refactor Contact
+  - refactor Add
+  - refactor Remove
 
 _1.0.1_
 
