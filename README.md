@@ -14,8 +14,6 @@ Use your browser's print preview to save your résumé as a PDF.
 
 #### TODO NEXT
 
-- see if I can move all the localStorage updates to a useEffect
-
 #### TODO LATER
 
 ##### Features
@@ -25,6 +23,12 @@ Use your browser's print preview to save your résumé as a PDF.
 ##### Style
 
 #### DONE
+
+_1.1.2_
+
+- move all the localStorage updates to a useEffect
+- move localStorage mount check to initial useState() argument as conditional
+- fix preview section spacing + sidebar alignment
 
 _1.1.1_
 

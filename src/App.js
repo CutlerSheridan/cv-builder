@@ -9,72 +9,76 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
 const App = () => {
-  const [state, setState] = useState({
-    contact: {
-      id: uniqid(),
-      name: '',
-      email: '',
-      phone: '',
-    },
-    experience: {
-      job: {
-        id: '',
-        company: '',
-        title: '',
-        start: '',
-        end: '',
-        description: '',
-      },
-      jobs: [
-        {
-          id: uniqid(),
-          company: '',
-          title: '',
-          start: '',
-          end: '',
-          description: '',
-        },
-      ],
-    },
-    skills: {
-      skill: {
-        id: '',
-        skillName: '',
-      },
-      allSkills: [
-        {
-          id: uniqid(),
-          skillName: '',
-        },
-      ],
-    },
-    education: {
-      program: {
-        id: '',
-        school: '',
-        start: '',
-        end: '',
-        focus: '',
-        description: '',
-      },
-      programs: [
-        {
-          id: uniqid(),
-          school: '',
-          start: '',
-          end: '',
-          focus: '',
-          description: '',
-        },
-      ],
-    },
-    editing: true,
-  });
+  const [state, setState] = useState(
+    localStorage.getItem('storedState')
+      ? { ...JSON.parse(localStorage.getItem('storedState')) }
+      : {
+          contact: {
+            id: uniqid(),
+            name: '',
+            email: '',
+            phone: '',
+          },
+          experience: {
+            job: {
+              id: '',
+              company: '',
+              title: '',
+              start: '',
+              end: '',
+              description: '',
+            },
+            jobs: [
+              {
+                id: uniqid(),
+                company: '',
+                title: '',
+                start: '',
+                end: '',
+                description: '',
+              },
+            ],
+          },
+          skills: {
+            skill: {
+              id: '',
+              skillName: '',
+            },
+            allSkills: [
+              {
+                id: uniqid(),
+                skillName: '',
+              },
+            ],
+          },
+          education: {
+            program: {
+              id: '',
+              school: '',
+              start: '',
+              end: '',
+              focus: '',
+              description: '',
+            },
+            programs: [
+              {
+                id: uniqid(),
+                school: '',
+                start: '',
+                end: '',
+                focus: '',
+                description: '',
+              },
+            ],
+          },
+          editing: true,
+        }
+  );
   useEffect(() => {
-    if (localStorage.getItem('storedState')) {
-      setState({ ...JSON.parse(localStorage.getItem('storedState')) });
-    }
-  }, []);
+    console.log('state changed');
+    console.log(JSON.parse(JSON.stringify(state)));
+    localStorage.setItem('storedState', JSON.stringify(state));
+  }, [state]);
   function toggleEditing() {
     const toggledMode = { editing: !state.editing };
     setState((prevState) => {
@@ -152,7 +156,6 @@ const App = () => {
       },
     ];
     setState(newState);
-    localStorage.setItem('storedState', JSON.stringify(newState));
   }
   const resetClearButton = (e) => {
     const clearButton = document.querySelector('.clearData-button');
@@ -172,67 +175,69 @@ const App = () => {
     }
     el.textContent = 'Clear Data';
     el.classList.remove('confirming');
-    setState({
-      contact: {
-        id: uniqid(),
-        name: '',
-        email: '',
-        phone: '',
-      },
-      experience: {
-        job: {
-          id: '',
-          company: '',
-          title: '',
-          start: '',
-          end: '',
-          description: '',
+    setState((prevState) => {
+      return {
+        contact: {
+          id: uniqid(),
+          name: '',
+          email: '',
+          phone: '',
         },
-        jobs: [
-          {
-            id: uniqid(),
+        experience: {
+          job: {
+            id: '',
             company: '',
             title: '',
             start: '',
             end: '',
             description: '',
           },
-        ],
-      },
-      skills: {
-        skill: {
-          id: '',
-          skillName: '',
+          jobs: [
+            {
+              id: uniqid(),
+              company: '',
+              title: '',
+              start: '',
+              end: '',
+              description: '',
+            },
+          ],
         },
-        allSkills: [
-          {
-            id: uniqid(),
+        skills: {
+          skill: {
+            id: '',
             skillName: '',
           },
-        ],
-      },
-      education: {
-        program: {
-          id: '',
-          school: '',
-          start: '',
-          end: '',
-          focus: '',
-          description: '',
+          allSkills: [
+            {
+              id: uniqid(),
+              skillName: '',
+            },
+          ],
         },
-        programs: [
-          {
-            id: uniqid(),
+        education: {
+          program: {
+            id: '',
             school: '',
             start: '',
             end: '',
             focus: '',
             description: '',
           },
-        ],
-      },
+          programs: [
+            {
+              id: uniqid(),
+              school: '',
+              start: '',
+              end: '',
+              focus: '',
+              description: '',
+            },
+          ],
+        },
+        editing: prevState.editing,
+      };
     });
-    localStorage.clear();
   };
   const handleChange = (e, section, prop) => {
     const newObj = JSON.parse(JSON.stringify(state[section]));
@@ -241,7 +246,6 @@ const App = () => {
       setState((prevState) => {
         return { ...prevState, ...{ [section]: newObj } };
       });
-      alterStoredState(section, newObj);
       return;
     }
     let arrayName;
@@ -269,17 +273,6 @@ const App = () => {
     setState((prevState) => {
       return { ...prevState, ...{ [section]: newObj } };
     });
-    alterStoredState(section, newObj);
-  };
-  const alterStoredState = (section, newObj) => {
-    let storedState;
-    if (localStorage.getItem('storedState')) {
-      storedState = JSON.parse(localStorage.getItem('storedState'));
-    } else {
-      storedState = JSON.parse(JSON.stringify(state));
-    }
-    storedState[section] = newObj;
-    localStorage.setItem('storedState', JSON.stringify(storedState));
   };
   const addItem = (section) => {
     const newObj = JSON.parse(JSON.stringify(state[section]));
@@ -308,7 +301,6 @@ const App = () => {
         return { ...prevState, ...{ [section]: newObj } };
       });
     }
-    alterStoredState(section, newObj);
   };
   const removeItem = (objId) => {
     const stateCopy = JSON.parse(JSON.stringify(state));
@@ -336,7 +328,6 @@ const App = () => {
             (x) => x.id !== objId
           );
           setState(stateCopy);
-          alterStoredState(prop, stateCopy[prop]);
           break;
         }
       }
@@ -375,7 +366,7 @@ const App = () => {
             className="formControl edit-toggle"
             onClick={toggleEditing}
           >
-            {state.editing ? 'Toggle preview mode' : 'Toggle edit mode'}
+            {state.editing ? 'Switch to preview mode' : 'Switch to edit mode'}
           </button>
           <button
             type="button"
