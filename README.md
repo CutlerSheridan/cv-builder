@@ -14,7 +14,7 @@ Use your browser's print preview to save your résumé as a PDF.
 
 #### TODO NEXT
 
--refactor app to use hooks
+- see if I can move all the localStorage updates to a useEffect
 
 #### TODO LATER
 
@@ -25,6 +25,10 @@ Use your browser's print preview to save your résumé as a PDF.
 ##### Style
 
 #### DONE
+
+_1.1.1_
+
+- refactor App.js as a functional component with hooks
 
 _1.1.0_
 

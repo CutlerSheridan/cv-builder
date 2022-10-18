@@ -1,5 +1,5 @@
 import './App.css';
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
@@ -8,100 +8,88 @@ import Education from './components/Education';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      contact: {
-        id: uniqid(),
-        name: '',
-        email: '',
-        phone: '',
+const App = () => {
+  const [state, setState] = useState({
+    contact: {
+      id: uniqid(),
+      name: '',
+      email: '',
+      phone: '',
+    },
+    experience: {
+      job: {
+        id: '',
+        company: '',
+        title: '',
+        start: '',
+        end: '',
+        description: '',
       },
-      experience: {
-        job: {
-          id: '',
+      jobs: [
+        {
+          id: uniqid(),
           company: '',
           title: '',
           start: '',
           end: '',
           description: '',
         },
-        jobs: [
-          {
-            id: uniqid(),
-            company: '',
-            title: '',
-            start: '',
-            end: '',
-            description: '',
-          },
-        ],
+      ],
+    },
+    skills: {
+      skill: {
+        id: '',
+        skillName: '',
       },
-      skills: {
-        skill: {
-          id: '',
+      allSkills: [
+        {
+          id: uniqid(),
           skillName: '',
         },
-        allSkills: [
-          {
-            id: uniqid(),
-            skillName: '',
-          },
-        ],
+      ],
+    },
+    education: {
+      program: {
+        id: '',
+        school: '',
+        start: '',
+        end: '',
+        focus: '',
+        description: '',
       },
-      education: {
-        program: {
-          id: '',
+      programs: [
+        {
+          id: uniqid(),
           school: '',
           start: '',
           end: '',
           focus: '',
           description: '',
         },
-        programs: [
-          {
-            id: uniqid(),
-            school: '',
-            start: '',
-            end: '',
-            focus: '',
-            description: '',
-          },
-        ],
-      },
-      editing: true,
-    };
-    this.toggleEditing = this.toggleEditing.bind(this);
-    this.addSampleData = this.addSampleData.bind(this);
-    this.clearData = this.clearData.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.addItem = this.addItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.alterStoredState = this.alterStoredState.bind(this);
-  }
-  componentDidMount() {
+      ],
+    },
+    editing: true,
+  });
+  useEffect(() => {
     if (localStorage.getItem('storedState')) {
-      this.setState({ ...JSON.parse(localStorage.getItem('storedState')) });
+      setState({ ...JSON.parse(localStorage.getItem('storedState')) });
     }
+  }, []);
+  function toggleEditing() {
+    const toggledMode = { editing: !state.editing };
+    setState((prevState) => {
+      return { ...prevState, ...toggledMode };
+    });
   }
-  toggleEditing() {
-    this.setState((state) => ({
-      editing: !state.editing,
-    }));
-  }
-  addSampleData() {
-    const newContact = {
+  function addSampleData() {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.contact = {
       id: uniqid(),
       name: 'Vincent Adultman',
       email: 'vincent.adultman@gmail.com',
       phone: '770-555-1239',
     };
-    this.setState({
-      contact: newContact,
-    });
-    const newExperience = JSON.parse(JSON.stringify(this.state.experience));
-    newExperience.jobs = [
+    newState.experience.jobs = [
       {
         id: uniqid(),
         company: 'Business Company',
@@ -130,11 +118,7 @@ class App extends Component {
           '- Got my fellow adults to do all the things they were supposed to do\n- Showed everyone a lot of Powerpoints about business',
       },
     ];
-    this.setState({
-      experience: newExperience,
-    });
-    const newSkills = JSON.parse(JSON.stringify(this.state.skills));
-    newSkills.allSkills = [
+    newState.skills.allSkills = [
       {
         id: uniqid(),
         skillName: 'Doing business',
@@ -156,11 +140,7 @@ class App extends Component {
         skillName: 'Making business deals',
       },
     ];
-    this.setState({
-      skills: newSkills,
-    });
-    const newEducation = JSON.parse(JSON.stringify(this.state.education));
-    newEducation.programs = [
+    newState.education.programs = [
       {
         id: uniqid(),
         school: 'Highly Respected University',
@@ -171,38 +151,28 @@ class App extends Component {
           'Voted "Least Likely to Be Three Children in a Trenchcoat" by everybody at the school',
       },
     ];
-    this.setState({
-      education: newEducation,
-    });
-    localStorage.setItem(
-      'storedState',
-      JSON.stringify({
-        contact: { ...newContact },
-        experience: { ...newExperience },
-        skills: { ...newSkills },
-        education: { ...newEducation },
-      })
-    );
+    setState(newState);
+    localStorage.setItem('storedState', JSON.stringify(newState));
   }
-  resetClearButton(e) {
+  const resetClearButton = (e) => {
     const clearButton = document.querySelector('.clearData-button');
     if (e.target !== clearButton) {
       clearButton.textContent = 'Clear Data';
       clearButton.classList.remove('confirming');
     }
-  }
-  clearData = (e) => {
+  };
+  const clearData = (e) => {
     e.stopPropagation();
     const el = e.target;
     if (!el.classList.contains('confirming')) {
       el.textContent = "You're sure?";
       el.classList.add('confirming');
-      document.addEventListener('click', this.resetClearButton, { once: true });
+      document.addEventListener('click', resetClearButton, { once: true });
       return;
     }
     el.textContent = 'Clear Data';
     el.classList.remove('confirming');
-    this.setState({
+    setState({
       contact: {
         id: uniqid(),
         name: '',
@@ -264,14 +234,14 @@ class App extends Component {
     });
     localStorage.clear();
   };
-  handleChange = (e, section, prop) => {
-    const newObj = JSON.parse(JSON.stringify(this.state[section]));
+  const handleChange = (e, section, prop) => {
+    const newObj = JSON.parse(JSON.stringify(state[section]));
     if (section === 'contact') {
       newObj[prop] = e.target.value;
-      this.setState({
-        [section]: newObj,
+      setState((prevState) => {
+        return { ...prevState, ...{ [section]: newObj } };
       });
-      this.alterStoredState(section, newObj);
+      alterStoredState(section, newObj);
       return;
     }
     let arrayName;
@@ -296,23 +266,23 @@ class App extends Component {
       alteredItem[prop] = e.target.value;
       return alteredItem;
     });
-    this.setState({
-      [section]: newObj,
+    setState((prevState) => {
+      return { ...prevState, ...{ [section]: newObj } };
     });
-    this.alterStoredState(section, newObj);
+    alterStoredState(section, newObj);
   };
-  alterStoredState = (section, newObj) => {
+  const alterStoredState = (section, newObj) => {
     let storedState;
     if (localStorage.getItem('storedState')) {
       storedState = JSON.parse(localStorage.getItem('storedState'));
     } else {
-      storedState = JSON.parse(JSON.stringify(this.state));
+      storedState = JSON.parse(JSON.stringify(state));
     }
     storedState[section] = newObj;
     localStorage.setItem('storedState', JSON.stringify(storedState));
   };
-  addItem = (section) => {
-    const newObj = JSON.parse(JSON.stringify(this.state[section]));
+  const addItem = (section) => {
+    const newObj = JSON.parse(JSON.stringify(state[section]));
     let unitName;
     let arrayName;
     switch (section) {
@@ -331,17 +301,17 @@ class App extends Component {
       default:
         break;
     }
-    if (!this.isLastObjEmpty(newObj[arrayName])) {
+    if (!isLastObjEmpty(newObj[arrayName])) {
       newObj[unitName].id = uniqid();
       newObj[arrayName] = newObj[arrayName].concat(newObj[unitName]);
-      this.setState({
-        [section]: newObj,
+      setState((prevState) => {
+        return { ...prevState, ...{ [section]: newObj } };
       });
     }
-    this.alterStoredState(section, newObj);
+    alterStoredState(section, newObj);
   };
-  removeItem = (objId) => {
-    const stateCopy = JSON.parse(JSON.stringify(this.state));
+  const removeItem = (objId) => {
+    const stateCopy = JSON.parse(JSON.stringify(state));
     for (let prop in stateCopy) {
       let arrayName;
       switch (prop) {
@@ -365,23 +335,21 @@ class App extends Component {
           stateCopy[prop][arrayName] = stateCopy[prop][arrayName].filter(
             (x) => x.id !== objId
           );
-          this.setState({
-            [prop]: stateCopy[prop],
-          });
-          this.alterStoredState(prop, stateCopy[prop]);
+          setState(stateCopy);
+          alterStoredState(prop, stateCopy[prop]);
           break;
         }
       }
     }
   };
-  isLastObjEmpty = (objArray) => {
+  const isLastObjEmpty = (objArray) => {
     if (objArray.length === 0) {
       return false;
     }
     const lastObj = objArray[objArray.length - 1];
-    return this.isObjEmpty(lastObj);
+    return isObjEmpty(lastObj);
   };
-  isObjEmpty = (obj) => {
+  const isObjEmpty = (obj) => {
     for (let prop in obj) {
       if (prop === 'id') {
         continue;
@@ -392,84 +360,82 @@ class App extends Component {
     }
     return true;
   };
-  render() {
-    return (
-      <div className="cv-container">
-        <header>
-          <h1>CV Builder</h1>
-          <p>Enter your information, then press "Toggle preview mode."</p>
-          <p>
-            To save your CV as a PDF, open your browser's print preview and
-            select "export as PDF" or "save as PDF."
-          </p>
-          <div className="controls-container">
-            <button
-              type="button"
-              className="formControl edit-toggle"
-              onClick={this.toggleEditing}
-            >
-              {this.state.editing ? 'Toggle preview mode' : 'Toggle edit mode'}
-            </button>
-            <button
-              type="button"
-              className="formControl demo-button"
-              onClick={this.addSampleData}
-            >
-              Add sample data
-            </button>
-            <button
-              type="button"
-              className="formControl clearData-button"
-              onClick={this.clearData}
-            >
-              Clear Data
-            </button>
-          </div>
-        </header>
-        <div className="cv">
-          <div className="filler-header">
-            <Sidebar text=""></Sidebar>
-            <div className="filler-headerContent"></div>
-          </div>
-          <Contact
-            contact={this.state.contact}
-            editing={this.state.editing}
-            onchange={this.handleChange}
-            isObjEmpty={this.isObjEmpty}
-          ></Contact>
-          <Experience
-            experience={this.state.experience}
-            editing={this.state.editing}
-            onchange={this.handleChange}
-            handleAddClick={this.addItem}
-            handleRemoveClick={this.removeItem}
-            isObjEmpty={this.isObjEmpty}
-          ></Experience>
-          <Skills
-            skills={this.state.skills}
-            editing={this.state.editing}
-            onchange={this.handleChange}
-            handleAddClick={this.addItem}
-            handleRemoveClick={this.removeItem}
-            isObjEmpty={this.isObjEmpty}
-          ></Skills>
-          <Education
-            education={this.state.education}
-            editing={this.state.editing}
-            onchange={this.handleChange}
-            handleAddClick={this.addItem}
-            handleRemoveClick={this.removeItem}
-            isObjEmpty={this.isObjEmpty}
-          ></Education>
-          <div className="filler-footer">
-            <Sidebar text=""></Sidebar>
-            <div className="filler-footerContent"></div>
-          </div>
+  return (
+    <div className="cv-container">
+      <header>
+        <h1>CV Builder</h1>
+        <p>Enter your information, then press "Toggle preview mode."</p>
+        <p>
+          To save your CV as a PDF, open your browser's print preview and select
+          "export as PDF" or "save as PDF."
+        </p>
+        <div className="controls-container">
+          <button
+            type="button"
+            className="formControl edit-toggle"
+            onClick={toggleEditing}
+          >
+            {state.editing ? 'Toggle preview mode' : 'Toggle edit mode'}
+          </button>
+          <button
+            type="button"
+            className="formControl demo-button"
+            onClick={addSampleData}
+          >
+            Add sample data
+          </button>
+          <button
+            type="button"
+            className="formControl clearData-button"
+            onClick={clearData}
+          >
+            Clear Data
+          </button>
         </div>
-        <Footer></Footer>
+      </header>
+      <div className="cv">
+        <div className="filler-header">
+          <Sidebar text=""></Sidebar>
+          <div className="filler-headerContent"></div>
+        </div>
+        <Contact
+          contact={state.contact}
+          editing={state.editing}
+          onchange={handleChange}
+          isObjEmpty={isObjEmpty}
+        ></Contact>
+        <Experience
+          experience={state.experience}
+          editing={state.editing}
+          onchange={handleChange}
+          handleAddClick={addItem}
+          handleRemoveClick={removeItem}
+          isObjEmpty={isObjEmpty}
+        ></Experience>
+        <Skills
+          skills={state.skills}
+          editing={state.editing}
+          onchange={handleChange}
+          handleAddClick={addItem}
+          handleRemoveClick={removeItem}
+          isObjEmpty={isObjEmpty}
+        ></Skills>
+        <Education
+          education={state.education}
+          editing={state.editing}
+          onchange={handleChange}
+          handleAddClick={addItem}
+          handleRemoveClick={removeItem}
+          isObjEmpty={isObjEmpty}
+        ></Education>
+        <div className="filler-footer">
+          <Sidebar text=""></Sidebar>
+          <div className="filler-footerContent"></div>
+        </div>
       </div>
-    );
-  }
-}
+      <Footer></Footer>
+    </div>
+  );
+};
 
 export default App;
