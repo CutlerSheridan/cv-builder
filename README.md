@@ -24,6 +24,12 @@ Use your browser's print preview to save your résumé as a PDF.
 
 #### DONE
 
+_1.1.3_
+
+- adjust experience section width
+- adjust instructional text
+- fix credit link
+
 _1.1.2_
 
 - move all the localStorage updates to a useEffect

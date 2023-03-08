@@ -110,10 +110,21 @@ header > p {
   justify-content: space-between;
   gap: 2rem;
   border-left: 1.5px solid var(--color-pri);
+  /* border: 2px solid red; */
 }
 .group {
-  max-width: 45rem;
+  /* position: relative; */
+  max-width: 60rem;
+  /* border: 2px solid green; */
 }
+/* .group::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 6.5in;
+  border: 1px solid red;
+} */
 .group-edit {
   margin: 1rem;
   padding: 0.3rem;

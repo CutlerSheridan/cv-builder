@@ -6,7 +6,10 @@ const Footer = () => {
       <p className="credit">Made by Cutler Sheridan.</p>
       <p className="credit">
         See more{' '}
-        <a className="credit-link" href="cutlersheridan.github.io/portfolio">
+        <a
+          className="credit-link"
+          href="https://cutlersheridan.github.io/portfolio"
+        >
           here.
         </a>
       </p>

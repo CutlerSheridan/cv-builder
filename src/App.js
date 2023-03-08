@@ -358,7 +358,13 @@ const App = () => {
         <p>Enter your information, then press "Toggle preview mode."</p>
         <p>
           To save your CV as a PDF, open your browser's print preview and select
-          "export as PDF" or "save as PDF."
+          "export as PDF" or "save as PDF." Make sure it's not set to black and
+          white!
+        </p>
+        <p>
+          If the alignment on the PDF is wrong, just bump the scale up or down
+          one or two notches. Or if it breaks onto a second page, bump it down
+          as much as you need.
         </p>
         <div className="controls-container">
           <button
